@@ -218,8 +218,8 @@ export const endeavor = {
       items: [
         { img: 'endeavor-ig-1.jpg', href: 'https://www.instagram.com/p/Det4_EtnHco/' },
         { img: 'endeavor-ig-2.jpg', href: 'https://www.instagram.com/reel/DbD9dP9hiR2/' },
-        { img: null, href: 'https://www.instagram.com/reel/DZ-oRcSBunm/' },
-        { img: null, href: 'https://www.instagram.com/reel/Df2oKcDBW0P/' },
+        { img: 'endeavor-ig-3.jpg', href: 'https://www.instagram.com/reel/DZ-oRcSBunm/' },
+        { img: 'endeavor-ig-4.jpg', href: 'https://www.instagram.com/reel/Df2oKcDBW0P/' },
       ] },
   ],
 };
