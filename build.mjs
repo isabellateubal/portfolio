@@ -123,6 +123,7 @@ ${sections}
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
+  window.addEventListener('hashchange', function () { show(location.hash.slice(1)); });
   show(location.hash.slice(1));
 })();
 </script>` });
