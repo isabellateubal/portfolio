@@ -229,7 +229,8 @@ export const personalCuration = {
   slug: 'personal-curation', title: 'Personal Curation',
   // one photo per post, shown in a side-scrolling row
   images: Array.from({ length: 36 }, (_, i) => `personal-curation-${String(i + 1).padStart(2, '0')}.jpg`),
-  html: `<p>Content curation of personal Instagram account.<br><a href="https://www.instagram.com/isateubal/" target="_blank" rel="noopener">@isateubal</a></p>`,
+  link: 'https://www.instagram.com/isateubal/',   // every photo opens this in a new tab
+  html: `<p>Content curation of personal Instagram account.</p>`,
 };
 
 // ── CV page (from the latest CV PDF) ──────────────────────────

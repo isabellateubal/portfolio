@@ -230,7 +230,7 @@ ${p.html}
 
 function personalCurationPage(p) {
   const slides = p.images.map((img, i) =>
-    `<div class="slide"><div class="photo" style="aspect-ratio:4 / 5"><img src="/images/${img}" alt="" loading="${i < 5 ? 'eager' : 'lazy'}" decoding="async"></div></div>`).join('');
+    `<a class="slide tile" ${linkAttrs(p.link)} aria-label="Open Instagram"><div class="photo" style="aspect-ratio:4 / 5"><img src="/images/${img}" alt="" loading="${i < 5 ? 'eager' : 'lazy'}" decoding="async" draggable="false"></div></a>`).join('');
   return layout({ title: p.title, body: `
 <article class="curation">
 <h1>${esc(p.title)}</h1>
