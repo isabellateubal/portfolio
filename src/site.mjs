@@ -22,7 +22,7 @@ export const site = {
 
 // ── Home page: the four big photos ────────────────────────────
 export const homeFeatures = [
-  { img: 'la-hero.jpg', title: 'LA', subtitle: 'Film Photography', href: '/la',
+  { img: 'la-hero.jpg', title: 'LA', subtitle: 'Film Photography', href: '/film',
     ratio: '1300 / 804', crop: { w: 152.59, h: 163.65, l: -9.84, t: -9.01 } },
   { img: 'david-zwirner.jpg', title: 'DAVID ZWIRNER', subtitle: 'Social Media Curation', href: '/dz',
     ratio: '1293 / 769', crop: { w: 113.64, h: 107.41, l: -7.16, t: -6.37 } },
@@ -95,7 +95,8 @@ export const decks = {
 // ── Individual project pages ──────────────────────────────────
 // type 'film'    → title, role, one big image or YouTube video, a button
 // type 'zine'    → a stack of large spreads, a button
-// type 'gallery' → titled grids of images
+// type 'gallery' → titled grids of images. To make a photo clickable, add its link to
+//                  `links` (same order as the images, use null for no link).
 export const projectPages = [
   { slug: 'la-vie-est-un-film', type: 'film', title: 'La Vie est un Film',
     role: 'Writer, Director, Cinematographer, Editor',

@@ -118,7 +118,7 @@ ${pill(p.button)}
   } else if (p.type === 'gallery') {
     body = `<article class="gallery" style="--cols:${p.columns}">
 <h1 class="visually-hidden">${esc(p.title)}</h1>
-${p.groups.map((g) => `<section><h2>${esc(g.heading)}</h2><div class="grid">${g.images.map((img) => photo(img, { ratio: p.ratio, alt: '' })).join('')}</div></section>`).join('\n')}
+${p.groups.map((g) => `<section><h2>${esc(g.heading)}</h2><div class="grid">${g.images.map((img, i) => { const ph = photo(img, { ratio: p.ratio, alt: '' }); const href = g.links && g.links[i]; return href ? `<a class="tile" ${linkAttrs(href)}>${ph}</a>` : ph; }).join('')}</div></section>`).join('\n')}
 </article>`;
   }
   return layout({ title: p.title, body });
