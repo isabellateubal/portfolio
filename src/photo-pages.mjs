@@ -3,6 +3,7 @@
 // Later photos sit on top of earlier ones (same order as Figma's layers).
 // crop = [w%, h%, left%, top%] of the image inside its box; leave it out to just fill the box.
 // The whole layout scales down proportionally on smaller screens.
+// Add `link` to a page to make every photo open that address in a new tab.
 
 export const photoPages = [
   { slug: 'istanbul', title: 'Istanbul', photos: [
@@ -34,7 +35,7 @@ export const photoPages = [
     ['96ee5', 644, 4573, 1078, 970, [134.97, 100, -34.97, 0]], ['ec893', -7, 5543, 1293, 862],
     ['1a7fa', 640, 1042, 643, 964], ['a01e8', -3, 1042, 643, 964],
   ]},
-  { slug: 'film', title: 'Film Photography', photos: [
+  { slug: 'film', title: 'Film Photography', link: 'https://www.instagram.com/itsolympuscam/', photos: [
     ['3fd23', 0, 14170, 1733, 1149], ['3c853', 0, 14359, 641, 960], ['5c91a', 0, 13398, 1281, 961],
     ['cf599', 0, 11698, 1281, 856], ['2719b', -13, 5506, 653, 978], ['02d2b', 0, 9998, 1280, 849],
     ['0ed82', 631, 9026, 649, 972], ['06ba8', 0, 9052, 631, 946], ['4d3e5', -18, 12554, 1298, 868],

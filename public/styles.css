@@ -341,11 +341,13 @@ a.media:hover img, a.media:hover video { opacity: 0.88; }
 .arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #000; background: transparent; color: #000; font: inherit; font-size: 16px; cursor: pointer; transition: background 0.2s, color 0.2s, opacity 0.2s; }
 .arrow:hover:not(:disabled) { background: #000; color: #fff; }
 .arrow:disabled { opacity: 0.25; cursor: default; }
-.curation-text { max-width: 1280px; margin: 40px auto 0; padding: 0 var(--pad); font-size: 20px; }
+.curation-text { max-width: 1280px; margin: 40px auto 0; padding: 0 var(--pad); font-size: 16px; }
 .curation-text a { text-decoration: underline; text-underline-offset: 2px; }
 @media (max-width: 600px) {
   .curation { padding-top: 24px; }
   .curation h1 { font-size: 18px; }
   .carousel .slide { width: 44vw; }
-  .curation-text { font-size: 16px; margin-top: 28px; }
+  .curation-text { font-size: 14px; margin-top: 28px; }
 }
+
+a.canvas-link:hover img { opacity: 0.85; }

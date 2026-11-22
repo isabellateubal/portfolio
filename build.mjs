@@ -166,7 +166,9 @@ function photoPage(p) {
     const img = crop
       ? `<img class="cropped" src="/images/${p.slug}-${id}.jpg" alt="" loading="lazy" decoding="async" style="width:${crop[0]}%;height:${crop[1]}%;left:${crop[2]}%;top:${crop[3]}%">`
       : `<img src="/images/${p.slug}-${id}.jpg" alt="" loading="lazy" decoding="async">`;
-    return `<div class="photo" style="position:absolute;${box}">${img}</div>`;
+    return p.link
+      ? `<a class="photo canvas-link" ${linkAttrs(p.link)} style="position:absolute;${box}">${img}</a>`
+      : `<div class="photo" style="position:absolute;${box}">${img}</div>`;
   }).join('\n');
   const intro = p.intro ? `<p class="essay-intro">${p.intro.map(esc).join('<br>')}</p>` : '';
   return layout({ title: p.title, body: `
