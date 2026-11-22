@@ -81,6 +81,7 @@ ${features}
 }
 
 function projectsPage() {
+  const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const sections = projectSections.map((s) => {
     const tiles = s.tiles.map((t) => {
       const external = t.href && isExternal(t.href);
@@ -88,14 +89,43 @@ function projectsPage() {
       <p class="tile-label${external ? ' underlined' : ''}"><span>${esc(t.label)}</span>${t.date ? `<em>${esc(t.date)}</em>` : ''}</p>`;
       return t.href ? `<a class="tile" ${linkAttrs(t.href)}>${inner}</a>` : `<div class="tile">${inner}</div>`;
     }).join('\n');
-    return `<section class="tile-section"><h2>${esc(s.heading)}</h2><div class="tiles">${tiles}</div></section>`;
+    return `<section class="tile-section" id="${slug(s.heading)}"><h2>${esc(s.heading)}</h2><div class="tiles">${tiles}</div></section>`;
   }).join('\n');
+  const cats = [...projectSections.map((s) => s.heading), 'Decks'];
+  const index = `<nav class="proj-index" aria-label="Project types">
+<a href="#all" data-filter="all" class="on">All</a>
+${cats.map((c) => `<a href="#${slug(c)}" data-filter="${slug(c)}">${esc(c)}</a>`).join('\n')}
+</nav>`;
   return layout({ title: 'Projects', current: 'projects', body: `
-<div class="projects">
+<div class="projects with-index">
+${index}
+<div class="proj-list">
 ${sections}
-<section class="tile-section decks"><h2>Decks</h2><p>${esc(decks.text)}</p>
+<section class="tile-section decks" id="decks"><h2>Decks</h2><p>${esc(decks.text)}</p>
 <a class="pill pill-small" ${linkAttrs(decks.href)}>${esc(decks.button)}</a></section>
-</div>` });
+</div>
+</div>
+<script>
+(function () {
+  var links = document.querySelectorAll('.proj-index a');
+  var secs = document.querySelectorAll('.proj-list .tile-section');
+  function show(f) {
+    if (!f || !document.getElementById(f)) f = 'all';
+    secs.forEach(function (s) { s.hidden = f !== 'all' && s.id !== f; });
+    links.forEach(function (a) { a.classList.toggle('on', a.dataset.filter === f); });
+  }
+  links.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var f = a.dataset.filter;
+      history.replaceState(null, '', f === 'all' ? location.pathname : '#' + f);
+      show(f);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+  show(location.hash.slice(1));
+})();
+</script>` });
 }
 
 function projectPage(p) {
