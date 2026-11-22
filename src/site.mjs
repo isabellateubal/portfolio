@@ -189,13 +189,12 @@ export const endeavor = {
   role: 'Social strategy, content, and copy across TikTok, Instagram, LinkedIn, and WhatsApp',
   sections: [
     { title: 'Launching @elsewherebyendeavor', handleUrl: 'https://www.tiktok.com/@elsewherebyendeavor',
-      text: 'TikTok strategy and launch plan, from first idea to first post. Presented to CEO Linda Rottenberg.',
+      text: 'TikTok strategy and launch plan, from first idea to first post.',
       shape: 'tall', columns: 5,
       // { video: 'file.mp4' or img: 'file.jpg', href: 'https://www.tiktok.com/...' }
       items: [null, null, null, null, null] },
     { title: 'Female Founders in London',
-      text: 'Distribution packages for the London event, adapted for each channel.',
-      link: { text: 'LinkedIn post', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7519140172626853889' },
+      text: 'Distribution packages for the London event, adapted for each channel and speaker.',
       shape: 'portrait', columns: 4,
       items: [null, null, null, null] },
     { title: 'Founder Storytelling and Copywriting',
