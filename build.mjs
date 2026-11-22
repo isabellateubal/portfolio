@@ -61,7 +61,7 @@ ${body}
 `;
 }
 
-const pill = (b) => `<div class="pill-row"><a class="pill" ${linkAttrs(b.href)}>${esc(b.text)}</a></div>`;
+const pill = (b) => `<div class="pill-row"><a class="pill${b.down ? ' pill-down' : ''}" ${linkAttrs(b.href)}${b.down ? ' download' : ''}>${esc(b.text)}</a></div>`;
 
 // ── Pages ─────────────────────────────────────────────────────
 function homePage() {
@@ -77,7 +77,7 @@ function homePage() {
 <section class="features">
 ${features}
 </section>
-<div class="pill-row more"><a class="pill pill-grey" href="/projects">More Projects</a></div>` });
+<div class="pill-row more"><a class="pill" href="/projects">More Projects</a></div>` });
 }
 
 function projectsPage() {
@@ -187,7 +187,7 @@ ${exp}
 ${edu}
 <h2>SKILLS</h2>
 ${skills}
-${pill({ text: 'Download PDF', href: site.cvPdf })}
+${pill({ text: 'Download PDF', href: site.cvPdf, down: true })}
 </article>` });
 }
 
