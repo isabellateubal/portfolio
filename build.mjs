@@ -310,7 +310,7 @@ ${pill({ text: 'Download PDF', href: site.cvPdf, down: true })}
 
 function aboutPage() {
   return layout({ title: 'Bio', current: 'about', body: `
-<article class="text-page">
+<article class="text-page bio">
 <h1>Bio</h1>
 ${bio.paragraphs.map((t) => `<p>${esc(t)}</p>`).join('\n')}
 ${photo(bio.img, { ratio: '659 / 879', alt: 'Isabella Teubal' })}

@@ -350,3 +350,8 @@ a.media:hover img, a.media:hover video { opacity: 0.88; }
 }
 
 a.canvas-link:hover img { opacity: 0.85; }
+
+/* Bio text a little smaller */
+.bio { font-size: 16px; }
+.bio p + p { margin-top: 22px; }
+@media (max-width: 600px) { .bio { font-size: 15px; } }
