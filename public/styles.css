@@ -335,7 +335,7 @@ a.media:hover img, a.media:hover video { opacity: 0.88; }
   padding: 0 var(--pad); scroll-padding: 0 var(--pad); scrollbar-width: none; outline: none;
 }
 .carousel .track::-webkit-scrollbar { display: none; }
-.carousel .slide { flex: 0 0 auto; width: clamp(220px, 24vw, 340px); scroll-snap-align: start; }
+.carousel .slide { flex: 0 0 auto; width: clamp(170px, 16vw, 215px); scroll-snap-align: start; }
 .carousel-nav { display: flex; align-items: center; justify-content: flex-end; gap: 14px; max-width: 1280px; margin: 16px auto 0; padding: 0 var(--pad); font-size: 13px; color: var(--muted); }
 .carousel-nav .count { min-width: 56px; text-align: center; font-variant-numeric: tabular-nums; }
 .arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #000; background: transparent; color: #000; font: inherit; font-size: 16px; cursor: pointer; transition: background 0.2s, color 0.2s, opacity 0.2s; }
@@ -346,6 +346,6 @@ a.media:hover img, a.media:hover video { opacity: 0.88; }
 @media (max-width: 600px) {
   .curation { padding-top: 24px; }
   .curation h1 { font-size: 18px; }
-  .carousel .slide { width: 72vw; }
+  .carousel .slide { width: 44vw; }
   .curation-text { font-size: 16px; margin-top: 28px; }
 }
