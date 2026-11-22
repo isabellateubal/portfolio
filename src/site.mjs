@@ -179,19 +179,43 @@ export const bio = {
 
 // ── Text pages ────────────────────────────────────────────────
 // Simple HTML: <h2> for bold headings, <p> for paragraphs, <a href> for links.
-export const textPages = [
-  { slug: 'endeavor', title: 'Endeavor', html: `
-<p>Marketing &amp; Communications Analyst, 2026 to present<br>Previously Digital Marketing Summer Analyst</p>
-<p>Endeavor is a global community of high-impact entrepreneurs. I work on the organization’s social presence across TikTok, Instagram, LinkedIn, and WhatsApp, covering strategy, content, and copy.</p>
-<h2>Launching <a href="https://www.tiktok.com/@elsewherebyendeavor" target="_blank" rel="noopener">@elsewherebyendeavor</a></h2>
-<p>I developed Endeavor’s TikTok strategy and launch plan from first idea to first post. The channel extends Elsewhere, Endeavor’s editorial voice on entrepreneurship outside Silicon Valley, to a new and younger audience. I presented the strategy to CEO Linda Rottenberg and the team as the channel went live, and I now manage it. This includes concepting, filming, and editing, as well as turning long-form panel footage into short clips for the platform.</p>
-<h2>Female Founders in London</h2>
-<p>For Endeavor’s London event on how female founders build businesses, I managed the distribution packages and adapted the event’s content for each <a href="https://www.linkedin.com/feed/update/urn:li:activity:7519140172626853889" target="_blank" rel="noopener">channel</a>, panelist, and relevant attendees. That meant photo-led storytelling on Instagram and a data-driven post on LinkedIn about women’s representation in venture capital, so one event reached each audience in a format that suited it.</p>
-<h2>Founder Storytelling and Copywriting</h2>
-<p>I write social copy that turns entrepreneurs’ journeys into short, readable stories for all social media platforms. For the Elsewhere WhatsApp channel, I condense long-form articles into short, conversational summaries that drive readers back to the full piece.</p>
-<h2>Community and Milestones</h2>
-<p>For <a href="https://www.instagram.com/endeavor_global/" target="_blank" rel="noopener">@endeavor_global</a>, I curate and create content that celebrates the network’s moments, from founder gatherings to companies like Cashea ringing the bell at Nasdaq.</p>` },
-];
+export const textPages = [];
+
+// ── Endeavor (visual page) ────────────────────────────────────
+// Anything set to null shows as a grey placeholder box until real content is added.
+// Images go in public/images, videos (mp4) in public/videos.
+export const endeavor = {
+  slug: 'endeavor', title: 'Endeavor',
+  intro: 'A global community of high-impact entrepreneurs. I shape its social presence across TikTok, Instagram, LinkedIn, and WhatsApp, from strategy to content and copy.',
+  heroImg: 'endeavor.jpg',
+  tiktok: {
+    title: 'Launching @elsewherebyendeavor', handleUrl: 'https://www.tiktok.com/@elsewherebyendeavor',
+    caption: 'Strategy to first post. Presented to CEO Linda Rottenberg.',
+    // up to 5 phones: { video: 'file.mp4' or img: 'file.jpg', href: 'https://www.tiktok.com/...' }
+    phones: [null, null, null, null, null],
+    // numbers: { value: '120K', label: 'views' } — leave empty to hide
+    stats: [null, null, null],
+  },
+  london: {
+    title: 'Female Founders in London',
+    caption: 'One event, adapted for every channel: photo-led stories on Instagram, data on LinkedIn.',
+    // photos: { img: 'file.jpg', href: 'https://...' }
+    photos: [null, null, null, null, null],
+    linkedin: { href: 'https://www.linkedin.com/feed/update/urn:li:activity:7519140172626853889', img: null },
+  },
+  copy: {
+    title: 'Founder Storytelling and Copywriting',
+    caption: 'Entrepreneurs’ journeys, turned into short stories people actually read.',
+    quotes: [null, null, null],        // your best captions, as plain text
+    whatsapp: [null, null, null],      // short WhatsApp summaries, shown as chat bubbles
+  },
+  community: {
+    title: 'Community and Milestones', handleUrl: 'https://www.instagram.com/endeavor_global/',
+    caption: 'Celebrating the network’s moments, from founder gatherings to Cashea ringing the bell at Nasdaq.',
+    // first post is shown large (the Nasdaq moment): { img: 'file.jpg', href: 'https://www.instagram.com/p/...' }
+    posts: [null, null, null, null, null],
+  },
+};
 
 export const personalCuration = {
   slug: 'personal-curation', title: 'Personal Curation',

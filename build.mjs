@@ -1,7 +1,7 @@
 // Builds the site into ./dist — run with:  node build.mjs
 import { mkdirSync, rmSync, writeFileSync, cpSync } from 'node:fs';
 import { join } from 'node:path';
-import { site, homeFeatures, projectSections, decks, projectPages, bio, textPages, personalCuration, cv } from './src/site.mjs';
+import { site, homeFeatures, projectSections, decks, projectPages, bio, textPages, personalCuration, cv, endeavor } from './src/site.mjs';
 import { photoPages } from './src/photo-pages.mjs';
 
 const OUT = 'dist';
@@ -149,6 +149,52 @@ ${p.button ? pill(p.button) : ''}
 </article>` });
 }
 
+// ── Endeavor: visual chapters ─────────────────────────────────
+const ph = (label) => `<div class="ph"><span>${esc(label)}</span></div>`;
+function media(item, label, { cls = '' } = {}) {
+  if (!item) return ph(label);
+  const inner = item.video
+    ? `<video src="/videos/${item.video}" autoplay muted loop playsinline preload="metadata"></video>`
+    : `<img src="/images/${item.img}" alt="" loading="lazy" decoding="async">`;
+  return item.href ? `<a class="media ${cls}" ${linkAttrs(item.href)}>${inner}</a>` : `<div class="media ${cls}">${inner}</div>`;
+}
+function chapter(n, c, body) {
+  const title = c.handleUrl
+    ? esc(c.title).replace(/(@\S+)/, `<a ${linkAttrs(c.handleUrl)}>$1</a>`)
+    : esc(c.title);
+  return `<section class="chapter">
+<header class="chapter-head"><span class="chapter-no">${String(n).padStart(2, '0')}</span><h2>${title}</h2><p>${esc(c.caption)}</p></header>
+${body}
+</section>`;
+}
+function endeavorPage(e) {
+  const t = e.tiktok, l = e.london, c = e.copy, m = e.community;
+  const stats = t.stats.some(Boolean) || t.stats.every((x) => x === null)
+    ? `<div class="stats">${t.stats.map((x, i) => x
+        ? `<div><strong>${esc(x.value)}</strong><span>${esc(x.label)}</span></div>`
+        : `<div class="stat-ph"><strong>—</strong><span>Number ${i + 1}</span></div>`).join('')}</div>` : '';
+  const phones = `<div class="phones">${t.phones.map((x, i) => `<div class="phone">${media(x, `TikTok ${i + 1}`)}</div>`).join('')}</div>`;
+  const strip = `<div class="strip">${l.photos.map((x, i) => `<div class="strip-item">${media(x, `Event photo ${i + 1}`)}</div>`).join('')}
+<a class="strip-item li-card" ${linkAttrs(l.linkedin.href)}>${l.linkedin.img ? `<img src="/images/${l.linkedin.img}" alt="" loading="lazy">` : '<span class="li-label">LinkedIn post</span><span class="li-go">View on LinkedIn</span>'}</a></div>`;
+  const quotes = `<div class="quotes">${c.quotes.map((q, i) => q
+    ? `<blockquote>“${esc(q)}”</blockquote>`
+    : `<blockquote class="q-ph">“Caption ${i + 1}: one of your best lines goes here.”</blockquote>`).join('')}</div>`;
+  const chat = `<div class="chat-phone"><div class="chat-top">Elsewhere · WhatsApp channel</div>${c.whatsapp.map((w, i) => w
+    ? `<p class="bubble">${esc(w)}</p>` : `<p class="bubble bubble-ph">Summary ${i + 1}</p>`).join('')}</div>`;
+  const grid = `<div class="ig-grid">${m.posts.map((x, i) => `<div class="ig-cell${i === 0 ? ' ig-big' : ''}">${media(x, i === 0 ? 'Nasdaq bell (large)' : `Instagram post ${i + 1}`)}</div>`).join('')}</div>`;
+  return layout({ title: e.title, body: `
+<article class="endv">
+<section class="endv-hero">
+  <div class="endv-hero-text"><h1>${esc(e.title)}</h1><p>${esc(e.intro)}</p></div>
+  ${photo(e.heroImg, { ratio: '4 / 3', alt: 'Endeavor', eager: true, crop: { w: 143.84, h: 104.11, l: -20.18, t: -1.42 } })}
+</section>
+${chapter(1, t, `<div class="tiktok">${phones}${stats}</div>`)}
+${chapter(2, l, strip)}
+${chapter(3, c, `<div class="copy">${quotes}${chat}</div>`)}
+${chapter(4, m, grid)}
+</article>` });
+}
+
 function textPage(p) {
   return layout({ title: p.title, body: `
 <article class="prose">
@@ -232,5 +278,6 @@ for (const p of photoPages) write(p.slug, photoPage(p));
 for (const p of textPages) write(p.slug, textPage(p));
 write(personalCuration.slug, personalCurationPage(personalCuration));
 write('cv', cvPage());
+write(endeavor.slug, endeavorPage(endeavor));
 writeFileSync(join(OUT, '404.html'), notFoundPage());
-console.log(`Built ${6 + projectPages.length + photoPages.length + textPages.length} pages into ./${OUT}`);
+console.log(`Built ${7 + projectPages.length + photoPages.length + textPages.length} pages into ./${OUT}`);
