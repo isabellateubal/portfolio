@@ -240,7 +240,6 @@ function personalCurationPage(p) {
   <div class="track" tabindex="0" aria-label="Photos, scroll sideways">${slides}</div>
   <div class="carousel-nav">
     <button class="arrow" data-dir="-1" aria-label="Previous">←</button>
-    <span class="count"><span class="now">1</span> / ${p.images.length}</span>
     <button class="arrow" data-dir="1" aria-label="Next">→</button>
   </div>
 </div>
@@ -248,25 +247,38 @@ function personalCurationPage(p) {
 </article>
 <script>
 (function () {
+  // Infinite loop: the row is repeated three times and we quietly jump back
+  // to the middle copy whenever the visitor scrolls near either end.
   var track = document.querySelector('.carousel .track');
-  var now = document.querySelector('.carousel .now');
-  var slides = track.children;
-  function step() { return slides[0].getBoundingClientRect().width + 6; }
+  var originals = Array.prototype.slice.call(track.children);
+  originals.forEach(function (el) { track.appendChild(el.cloneNode(true)); });
+  originals.slice().reverse().forEach(function (el) { track.insertBefore(el.cloneNode(true), track.firstChild); });
+  track.querySelectorAll('img').forEach(function (img) { img.loading = 'eager'; });
+  var count = originals.length;
+  function step() { return track.children[0].getBoundingClientRect().width + 6; }
+  function setWidth() { return count * step(); }
+  function jump(x) {
+    track.style.scrollBehavior = 'auto'; track.style.scrollSnapType = 'none';
+    track.scrollLeft = x;
+    requestAnimationFrame(function () { track.style.scrollBehavior = ''; track.style.scrollSnapType = ''; });
+  }
+  jump(setWidth());
+  var t;
+  track.addEventListener('scroll', function () {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      var w = setWidth();
+      if (track.scrollLeft < w * 0.5) jump(track.scrollLeft + w);
+      else if (track.scrollLeft > w * 1.5) jump(track.scrollLeft - w);
+    }, 120);
+  });
   document.querySelectorAll('.carousel .arrow').forEach(function (b) {
     b.addEventListener('click', function () {
-      var n = Math.max(1, Math.floor(track.clientWidth / step()));
+      var n = Math.max(1, Math.floor(track.clientWidth / step()) - 1);
       track.scrollBy({ left: +b.dataset.dir * n * step(), behavior: 'smooth' });
     });
   });
-  function update() {
-    var i = Math.round(track.scrollLeft / step());
-    now.textContent = Math.min(slides.length, i + 1);
-    document.querySelector('.arrow[data-dir="-1"]').disabled = track.scrollLeft < 4;
-    document.querySelector('.arrow[data-dir="1"]').disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
-  }
-  track.addEventListener('scroll', function () { requestAnimationFrame(update); });
-  window.addEventListener('resize', update);
-  update();
+  window.addEventListener('resize', function () { jump(setWidth()); });
 })();
 </script>` });
 }

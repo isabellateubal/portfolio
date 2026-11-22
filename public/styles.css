@@ -336,9 +336,8 @@ a.media:hover img, a.media:hover video { opacity: 0.88; }
 }
 .carousel .track::-webkit-scrollbar { display: none; }
 .carousel .slide { flex: 0 0 auto; width: clamp(170px, 16vw, 215px); scroll-snap-align: start; }
-.carousel-nav { display: flex; align-items: center; justify-content: flex-end; gap: 14px; max-width: 1280px; margin: 16px auto 0; padding: 0 var(--pad); font-size: 13px; color: var(--muted); }
-.carousel-nav .count { min-width: 56px; text-align: center; font-variant-numeric: tabular-nums; }
-.arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #000; background: transparent; color: #000; font: inherit; font-size: 16px; cursor: pointer; transition: background 0.2s, color 0.2s, opacity 0.2s; }
+.carousel-nav { display: flex; align-items: center; justify-content: flex-end; gap: 8px; max-width: 1280px; margin: 16px auto 0; padding: 0 var(--pad); font-size: 13px; color: var(--muted); }
+.arrow { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #000; background: transparent; color: #000; font: inherit; font-size: 13px; line-height: 1; padding: 0; cursor: pointer; transition: background 0.2s, color 0.2s, opacity 0.2s; }
 .arrow:hover:not(:disabled) { background: #000; color: #fff; }
 .arrow:disabled { opacity: 0.25; cursor: default; }
 .curation-text { max-width: 1280px; margin: 40px auto 0; padding: 0 var(--pad); font-size: 16px; }
