@@ -190,7 +190,7 @@ export const endeavor = {
   sections: [
     { title: 'Launching @elsewherebyendeavor', handleUrl: 'https://www.tiktok.com/@elsewherebyendeavor',
       text: 'TikTok strategy and launch plan, from first idea to first post.',
-      shape: 'tall', columns: 4,
+      shape: 'portrait', columns: 4,
       // { video: 'file.mp4' or img: 'file.jpg', href: 'https://www.tiktok.com/...' }
       items: [
         { img: 'endeavor-tiktok-1.jpg', href: 'https://vm.tiktok.com/ZN8mVcxEb/' },
@@ -216,7 +216,7 @@ export const endeavor = {
       ] },
     { title: 'Founder Storytelling and Copywriting',
       text: 'Social copy for all platforms, and short summaries for the Elsewhere WhatsApp channel.',
-      shape: 'tall', columns: 4,
+      shape: 'portrait', columns: 4,
       items: [
         { img: 'endeavor-copy-1.jpg', pos: 'center top', href: 'https://whatsapp.com/channel/0029Vb7FARMHLHQgYvOXme32' },
         { img: 'endeavor-copy-2.jpg', pos: 'left top', href: 'https://www.linkedin.com/posts/endeavorglobal_linda-rottenberg-on-changing-the-map-of-innovation-activity-7526285136032845824-VYjF' },
