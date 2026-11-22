@@ -187,6 +187,7 @@ export const textPages = [];
 export const endeavor = {
   slug: 'endeavor', title: 'Endeavor',
   role: 'Social strategy, content, and copy across TikTok, Instagram, LinkedIn, and WhatsApp',
+  // half: true → two neighbouring sections share one row
   sections: [
     { title: 'Launching @elsewherebyendeavor', handleUrl: 'https://www.tiktok.com/@elsewherebyendeavor',
       text: 'TikTok strategy and launch plan, from first idea to first post.',
@@ -207,14 +208,14 @@ export const endeavor = {
         { img: 'endeavor-ig-3.jpg', href: 'https://www.instagram.com/reel/DZ-oRcSBunm/' },
         { img: 'endeavor-ig-4.jpg', href: 'https://www.instagram.com/reel/Df2oKcDBW0P/' },
       ] },
-    { title: 'Female Founders in London',
+    { title: 'Female Founders in London', half: true,
       text: 'Distribution packages for the London event, adapted for each channel and speaker.',
       shape: 'portrait', columns: 4,
       items: [
         { img: 'endeavor-london-1.jpg', pos: '22% center', href: 'https://www.linkedin.com/posts/endeavorglobal_foundherskeepers-networkoftrust-femalefounders-activity-7519140172626853889-e32x' },
         { img: 'endeavor-london-2.jpg', href: 'https://www.instagram.com/p/Dez6I1knGFs/' },
       ] },
-    { title: 'Founder Storytelling and Copywriting',
+    { title: 'Founder Storytelling and Copywriting', half: true,
       text: 'Social copy for all platforms, and short summaries for the Elsewhere WhatsApp channel.',
       shape: 'portrait', columns: 4,
       items: [

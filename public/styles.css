@@ -217,7 +217,10 @@ a.tile:hover .photo img { opacity: 0.85; }
 .endv { max-width: 1280px; margin: 0 auto; padding: 56px var(--pad) 40px; }
 .endv h1 { font-size: 20px; display: flex; flex-direction: column; margin-bottom: 72px; }
 .endv h1 em { font-weight: 500; }
-.endv-sec + .endv-sec { margin-top: 96px; }
+.endv > * + * { margin-top: 96px; }
+.endv h1 + * { margin-top: 0; }
+.endv-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.endv-pair .endv-grid { --cols: 2 !important; grid-template-columns: repeat(2, 1fr); }
 .endv-sec h2 { font-size: 16px; }
 .endv-sec h2 a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .endv-text { font-size: 13px; color: var(--muted); margin: 4px 0 16px; max-width: 640px; }
@@ -231,7 +234,8 @@ a.tile:hover .photo img { opacity: 0.85; }
 @media (max-width: 600px) {
   .endv { padding-top: 24px; }
   .endv h1 { font-size: 18px; margin-bottom: 48px; }
-  .endv-sec + .endv-sec { margin-top: 64px; }
+  .endv > * + * { margin-top: 64px; }
+  .endv-pair { grid-template-columns: 1fr; row-gap: 64px; }
   .endv-grid { grid-template-columns: repeat(2, 1fr); }
   .endv-tall { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin-right: calc(-1 * var(--pad)); padding-right: var(--pad); scrollbar-width: none; }
   .endv-tall > * { flex: 0 0 44%; scroll-snap-align: start; }

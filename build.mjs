@@ -164,7 +164,7 @@ function endeavorPage(e) {
     return item.href ? `<a class="tile" ${linkAttrs(item.href)}>${box}</a>` : box;
   };
   let ratio;
-  const sections = e.sections.map((sec) => {
+  const rendered = e.sections.map((sec) => {
     ratio = ratios[sec.shape] || ratios.portrait;
     const title = sec.handleUrl
       ? esc(sec.title).replace(/(@\S+)/, `<a ${linkAttrs(sec.handleUrl)}>$1</a>`) : esc(sec.title);
@@ -174,7 +174,14 @@ function endeavorPage(e) {
 <p class="endv-text">${esc(sec.text)}${link}</p>
 <div class="endv-grid endv-${sec.shape}" style="--cols:${sec.columns}">${sec.items.map(cell).join('')}</div>
 </section>`;
-  }).join('\n');
+  });
+  // put neighbouring half-width sections side by side
+  let sections = '';
+  for (let i = 0; i < rendered.length; i++) {
+    if (e.sections[i].half && e.sections[i + 1] && e.sections[i + 1].half) {
+      sections += `<div class="endv-pair">${rendered[i]}${rendered[i + 1]}</div>\n`; i++;
+    } else sections += rendered[i] + '\n';
+  }
   return layout({ title: e.title, body: `
 <article class="endv">
 <h1>${esc(e.title)}<em>${esc(e.role)}</em></h1>
