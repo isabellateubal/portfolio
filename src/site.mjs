@@ -9,7 +9,6 @@ export const site = {
   name: 'Isabella Teubal',
   intro: 'Hi, I’m Isabella Teubal. Creative Director based in New York.',
   email: 'isateubal@gmail.com',
-  phone: '+1 (617) 955-1761',
   instagram: 'https://www.instagram.com/isateubal/',
   linkedin: 'https://www.linkedin.com/in/isabella-teubal-3121a6222/',
   cv: '/cv',

@@ -206,8 +206,7 @@ function contactPage() {
   return layout({ title: 'Contact', current: 'contact', body: `
 <article class="text-page contact">
 <p><strong>Feel free to reach out via:</strong><br>
-Email: <a href="mailto:${site.email}">${site.email}</a><br>
-Mobile: ${esc(site.phone)}</p>
+Email: <a href="mailto:${site.email}">${site.email}</a></p>
 </article>` });
 }
 
