@@ -356,3 +356,7 @@ a.canvas-link:hover img { opacity: 0.85; }
 .bio p + p { margin-top: 22px; }
 @media (max-width: 600px) { .bio { font-size: 15px; } }
 @media (max-width: 600px) { .endv h1 em { font-size: 15px; } }
+/* CV background: on phones, stretch the photo over the whole page height */
+@media (max-width: 900px) {
+  .cv-body { background-size: cover; background-position: 62% center; background-attachment: scroll; }
+}
