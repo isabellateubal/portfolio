@@ -229,12 +229,44 @@ ${p.html}
 }
 
 function personalCurationPage(p) {
+  const slides = p.images.map((img, i) =>
+    `<div class="slide"><div class="photo" style="aspect-ratio:4 / 5"><img src="/images/${img}" alt="" loading="${i < 5 ? 'eager' : 'lazy'}" decoding="async"></div></div>`).join('');
   return layout({ title: p.title, body: `
-<article class="stack">
+<article class="curation">
 <h1>${esc(p.title)}</h1>
-${p.images.map((img, i) => photo(img, { ratio: '1085 / 723', alt: '', eager: i === 0 })).join('\n')}
-<div class="stack-text">${p.html}</div>
-</article>` });
+<div class="carousel">
+  <div class="track" tabindex="0" aria-label="Photos, scroll sideways">${slides}</div>
+  <div class="carousel-nav">
+    <button class="arrow" data-dir="-1" aria-label="Previous">←</button>
+    <span class="count"><span class="now">1</span> / ${p.images.length}</span>
+    <button class="arrow" data-dir="1" aria-label="Next">→</button>
+  </div>
+</div>
+<div class="curation-text">${p.html}</div>
+</article>
+<script>
+(function () {
+  var track = document.querySelector('.carousel .track');
+  var now = document.querySelector('.carousel .now');
+  var slides = track.children;
+  function step() { return slides[0].getBoundingClientRect().width + 6; }
+  document.querySelectorAll('.carousel .arrow').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var n = Math.max(1, Math.floor(track.clientWidth / step()));
+      track.scrollBy({ left: +b.dataset.dir * n * step(), behavior: 'smooth' });
+    });
+  });
+  function update() {
+    var i = Math.round(track.scrollLeft / step());
+    now.textContent = Math.min(slides.length, i + 1);
+    document.querySelector('.arrow[data-dir="-1"]').disabled = track.scrollLeft < 4;
+    document.querySelector('.arrow[data-dir="1"]').disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
+  }
+  track.addEventListener('scroll', function () { requestAnimationFrame(update); });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>` });
 }
 
 function cvPage() {

@@ -227,7 +227,8 @@ export const endeavor = {
 
 export const personalCuration = {
   slug: 'personal-curation', title: 'Personal Curation',
-  images: ['personal-curation-1.jpg', 'personal-curation-2.jpg'],
+  // one photo per post, shown in a side-scrolling row
+  images: Array.from({ length: 36 }, (_, i) => `personal-curation-${String(i + 1).padStart(2, '0')}.jpg`),
   html: `<p>Content curation of personal Instagram account.<br><a href="https://www.instagram.com/isateubal/" target="_blank" rel="noopener">@isateubal</a></p>`,
 };
 
