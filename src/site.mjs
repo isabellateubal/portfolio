@@ -186,35 +186,27 @@ export const textPages = [];
 // Images go in public/images, videos (mp4) in public/videos.
 export const endeavor = {
   slug: 'endeavor', title: 'Endeavor',
-  intro: 'A global community of high-impact entrepreneurs. I shape its social presence across TikTok, Instagram, LinkedIn, and WhatsApp, from strategy to content and copy.',
-  heroImg: 'endeavor.jpg',
-  tiktok: {
-    title: 'Launching @elsewherebyendeavor', handleUrl: 'https://www.tiktok.com/@elsewherebyendeavor',
-    caption: 'Strategy to first post. Presented to CEO Linda Rottenberg.',
-    // up to 5 phones: { video: 'file.mp4' or img: 'file.jpg', href: 'https://www.tiktok.com/...' }
-    phones: [null, null, null, null, null],
-    // numbers: { value: '120K', label: 'views' } — leave empty to hide
-    stats: [null, null, null],
-  },
-  london: {
-    title: 'Female Founders in London',
-    caption: 'One event, adapted for every channel: photo-led stories on Instagram, data on LinkedIn.',
-    // photos: { img: 'file.jpg', href: 'https://...' }
-    photos: [null, null, null, null, null],
-    linkedin: { href: 'https://www.linkedin.com/feed/update/urn:li:activity:7519140172626853889', img: null },
-  },
-  copy: {
-    title: 'Founder Storytelling and Copywriting',
-    caption: 'Entrepreneurs’ journeys, turned into short stories people actually read.',
-    quotes: [null, null, null],        // your best captions, as plain text
-    whatsapp: [null, null, null],      // short WhatsApp summaries, shown as chat bubbles
-  },
-  community: {
-    title: 'Community and Milestones', handleUrl: 'https://www.instagram.com/endeavor_global/',
-    caption: 'Celebrating the network’s moments, from founder gatherings to Cashea ringing the bell at Nasdaq.',
-    // first post is shown large (the Nasdaq moment): { img: 'file.jpg', href: 'https://www.instagram.com/p/...' }
-    posts: [null, null, null, null, null],
-  },
+  role: 'Social strategy, content, and copy across TikTok, Instagram, LinkedIn, and WhatsApp',
+  sections: [
+    { title: 'Launching @elsewherebyendeavor', handleUrl: 'https://www.tiktok.com/@elsewherebyendeavor',
+      text: 'TikTok strategy and launch plan, from first idea to first post. Presented to CEO Linda Rottenberg.',
+      shape: 'tall', columns: 5,
+      // { video: 'file.mp4' or img: 'file.jpg', href: 'https://www.tiktok.com/...' }
+      items: [null, null, null, null, null] },
+    { title: 'Female Founders in London',
+      text: 'Distribution packages for the London event, adapted for each channel.',
+      link: { text: 'LinkedIn post', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7519140172626853889' },
+      shape: 'portrait', columns: 4,
+      items: [null, null, null, null] },
+    { title: 'Founder Storytelling and Copywriting',
+      text: 'Social copy for all platforms, and short summaries for the Elsewhere WhatsApp channel.',
+      shape: 'tall', columns: 4,
+      items: [null, null, null, null] },
+    { title: 'Community and Milestones', handleUrl: 'https://www.instagram.com/endeavor_global/',
+      text: 'Content for @endeavor_global, from founder gatherings to Cashea ringing the bell at Nasdaq.',
+      shape: 'portrait', columns: 4,
+      items: [null, null, null, null] },
+  ],
 };
 
 export const personalCuration = {

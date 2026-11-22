@@ -149,49 +149,33 @@ ${p.button ? pill(p.button) : ''}
 </article>` });
 }
 
-// ── Endeavor: visual chapters ─────────────────────────────────
-const ph = (label) => `<div class="ph"><span>${esc(label)}</span></div>`;
-function media(item, label, { cls = '' } = {}) {
-  if (!item) return ph(label);
-  const inner = item.video
-    ? `<video src="/videos/${item.video}" autoplay muted loop playsinline preload="metadata"></video>`
-    : `<img src="/images/${item.img}" alt="" loading="lazy" decoding="async">`;
-  return item.href ? `<a class="media ${cls}" ${linkAttrs(item.href)}>${inner}</a>` : `<div class="media ${cls}">${inner}</div>`;
-}
-function chapter(n, c, body) {
-  const title = c.handleUrl
-    ? esc(c.title).replace(/(@\S+)/, `<a ${linkAttrs(c.handleUrl)}>$1</a>`)
-    : esc(c.title);
-  return `<section class="chapter">
-<header class="chapter-head"><span class="chapter-no">${String(n).padStart(2, '0')}</span><h2>${title}</h2><p>${esc(c.caption)}</p></header>
-${body}
-</section>`;
-}
+// ── Endeavor: image-led sections ──────────────────────────────
 function endeavorPage(e) {
-  const t = e.tiktok, l = e.london, c = e.copy, m = e.community;
-  const stats = t.stats.some(Boolean) || t.stats.every((x) => x === null)
-    ? `<div class="stats">${t.stats.map((x, i) => x
-        ? `<div><strong>${esc(x.value)}</strong><span>${esc(x.label)}</span></div>`
-        : `<div class="stat-ph"><strong>—</strong><span>Number ${i + 1}</span></div>`).join('')}</div>` : '';
-  const phones = `<div class="phones">${t.phones.map((x, i) => `<div class="phone">${media(x, `TikTok ${i + 1}`)}</div>`).join('')}</div>`;
-  const strip = `<div class="strip">${l.photos.map((x, i) => `<div class="strip-item">${media(x, `Event photo ${i + 1}`)}</div>`).join('')}
-<a class="strip-item li-card" ${linkAttrs(l.linkedin.href)}>${l.linkedin.img ? `<img src="/images/${l.linkedin.img}" alt="" loading="lazy">` : '<span class="li-label">LinkedIn post</span><span class="li-go">View on LinkedIn</span>'}</a></div>`;
-  const quotes = `<div class="quotes">${c.quotes.map((q, i) => q
-    ? `<blockquote>“${esc(q)}”</blockquote>`
-    : `<blockquote class="q-ph">“Caption ${i + 1}: one of your best lines goes here.”</blockquote>`).join('')}</div>`;
-  const chat = `<div class="chat-phone"><div class="chat-top">Elsewhere · WhatsApp channel</div>${c.whatsapp.map((w, i) => w
-    ? `<p class="bubble">${esc(w)}</p>` : `<p class="bubble bubble-ph">Summary ${i + 1}</p>`).join('')}</div>`;
-  const grid = `<div class="ig-grid">${m.posts.map((x, i) => `<div class="ig-cell${i === 0 ? ' ig-big' : ''}">${media(x, i === 0 ? 'Nasdaq bell (large)' : `Instagram post ${i + 1}`)}</div>`).join('')}</div>`;
+  const ratios = { tall: '9 / 16', portrait: '4 / 5', wide: '16 / 9' };
+  const cell = (item) => {
+    if (!item) return `<div class="photo ph-box" style="aspect-ratio:${ratio}"></div>`;
+    const inner = item.video
+      ? `<video src="/videos/${item.video}" autoplay muted loop playsinline preload="metadata"></video>`
+      : `<img src="/images/${item.img}" alt="" loading="lazy" decoding="async">`;
+    const box = `<div class="photo" style="aspect-ratio:${ratio}">${inner}</div>`;
+    return item.href ? `<a class="tile" ${linkAttrs(item.href)}>${box}</a>` : box;
+  };
+  let ratio;
+  const sections = e.sections.map((sec) => {
+    ratio = ratios[sec.shape] || ratios.portrait;
+    const title = sec.handleUrl
+      ? esc(sec.title).replace(/(@\S+)/, `<a ${linkAttrs(sec.handleUrl)}>$1</a>`) : esc(sec.title);
+    const link = sec.link ? ` <a class="inline-link" ${linkAttrs(sec.link.href)}>${esc(sec.link.text)}</a>` : '';
+    return `<section class="endv-sec">
+<h2>${title}</h2>
+<p class="endv-text">${esc(sec.text)}${link}</p>
+<div class="endv-grid endv-${sec.shape}" style="--cols:${sec.columns}">${sec.items.map(cell).join('')}</div>
+</section>`;
+  }).join('\n');
   return layout({ title: e.title, body: `
 <article class="endv">
-<section class="endv-hero">
-  <div class="endv-hero-text"><h1>${esc(e.title)}</h1><p>${esc(e.intro)}</p></div>
-  ${photo(e.heroImg, { ratio: '4 / 3', alt: 'Endeavor', eager: true, crop: { w: 143.84, h: 104.11, l: -20.18, t: -1.42 } })}
-</section>
-${chapter(1, t, `<div class="tiktok">${phones}${stats}</div>`)}
-${chapter(2, l, strip)}
-${chapter(3, c, `<div class="copy">${quotes}${chat}</div>`)}
-${chapter(4, m, grid)}
+<h1>${esc(e.title)}<em>${esc(e.role)}</em></h1>
+${sections}
 </article>` });
 }
 
