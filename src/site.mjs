@@ -198,6 +198,15 @@ export const endeavor = {
         { img: 'endeavor-tiktok-3.jpg', href: 'https://vm.tiktok.com/ZN8mqd6ou/' },
         { img: 'endeavor-tiktok-4.jpg', href: 'https://vm.tiktok.com/ZN8mqeLv2/' },
       ] },
+    { title: 'Community and Milestones', handleUrl: 'https://www.instagram.com/endeavor_global/',
+      text: 'Content for @endeavor_global, from founder gatherings to Cashea ringing the bell at Nasdaq.',
+      shape: 'portrait', columns: 4,
+      items: [
+        { img: 'endeavor-ig-1.jpg', href: 'https://www.instagram.com/p/Det4_EtnHco/' },
+        { img: 'endeavor-ig-2.jpg', href: 'https://www.instagram.com/reel/DbD9dP9hiR2/' },
+        { img: 'endeavor-ig-3.jpg', href: 'https://www.instagram.com/reel/DZ-oRcSBunm/' },
+        { img: 'endeavor-ig-4.jpg', href: 'https://www.instagram.com/reel/Df2oKcDBW0P/' },
+      ] },
     { title: 'Female Founders in London',
       text: 'Distribution packages for the London event, adapted for each channel and speaker.',
       shape: 'portrait', columns: 4,
@@ -211,15 +220,6 @@ export const endeavor = {
       items: [
         { img: 'endeavor-copy-1.jpg', pos: 'center top', href: 'https://whatsapp.com/channel/0029Vb7FARMHLHQgYvOXme32' },
         { img: 'endeavor-copy-2.jpg', pos: 'left top', href: 'https://www.linkedin.com/posts/endeavorglobal_linda-rottenberg-on-changing-the-map-of-innovation-activity-7526285136032845824-VYjF' },
-      ] },
-    { title: 'Community and Milestones', handleUrl: 'https://www.instagram.com/endeavor_global/',
-      text: 'Content for @endeavor_global, from founder gatherings to Cashea ringing the bell at Nasdaq.',
-      shape: 'portrait', columns: 4,
-      items: [
-        { img: 'endeavor-ig-1.jpg', href: 'https://www.instagram.com/p/Det4_EtnHco/' },
-        { img: 'endeavor-ig-2.jpg', href: 'https://www.instagram.com/reel/DbD9dP9hiR2/' },
-        { img: 'endeavor-ig-3.jpg', href: 'https://www.instagram.com/reel/DZ-oRcSBunm/' },
-        { img: 'endeavor-ig-4.jpg', href: 'https://www.instagram.com/reel/Df2oKcDBW0P/' },
       ] },
   ],
 };
