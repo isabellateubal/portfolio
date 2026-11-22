@@ -153,10 +153,13 @@ ${p.button ? pill(p.button) : ''}
 function endeavorPage(e) {
   const ratios = { tall: '9 / 16', portrait: '4 / 5', wide: '16 / 9' };
   const cell = (item) => {
-    if (!item) return `<div class="photo ph-box" style="aspect-ratio:${ratio}"></div>`;
+    if (!item || !(item.img || item.video)) {
+      const box = `<div class="photo ph-box" style="aspect-ratio:${ratio}"></div>`;
+      return item && item.href ? `<a class="tile" ${linkAttrs(item.href)}>${box}</a>` : box;
+    }
     const inner = item.video
       ? `<video src="/videos/${item.video}" autoplay muted loop playsinline preload="metadata"></video>`
-      : `<img src="/images/${item.img}" alt="" loading="lazy" decoding="async">`;
+      : `<img src="/images/${item.img}" alt="" loading="lazy" decoding="async"${item.pos ? ` style="object-position:${item.pos}"` : ''}>`;
     const box = `<div class="photo" style="aspect-ratio:${ratio}">${inner}</div>`;
     return item.href ? `<a class="tile" ${linkAttrs(item.href)}>${box}</a>` : box;
   };

@@ -190,21 +190,37 @@ export const endeavor = {
   sections: [
     { title: 'Launching @elsewherebyendeavor', handleUrl: 'https://www.tiktok.com/@elsewherebyendeavor',
       text: 'TikTok strategy and launch plan, from first idea to first post.',
-      shape: 'tall', columns: 5,
+      shape: 'tall', columns: 4,
       // { video: 'file.mp4' or img: 'file.jpg', href: 'https://www.tiktok.com/...' }
-      items: [null, null, null, null, null] },
+      items: [
+        { img: 'endeavor-tiktok-1.jpg', href: 'https://vm.tiktok.com/ZN8mVcxEb/' },
+        { img: 'endeavor-tiktok-2.jpg', href: 'https://vm.tiktok.com/ZN8mqdurV/' },
+        { img: 'endeavor-tiktok-3.jpg', href: 'https://vm.tiktok.com/ZN8mqd6ou/' },
+        { img: 'endeavor-tiktok-4.jpg', href: 'https://vm.tiktok.com/ZN8mqeLv2/' },
+      ] },
     { title: 'Female Founders in London',
       text: 'Distribution packages for the London event, adapted for each channel and speaker.',
       shape: 'portrait', columns: 4,
-      items: [null, null, null, null] },
+      items: [
+        { img: 'endeavor-london-1.jpg', pos: '22% center', href: 'https://www.linkedin.com/posts/endeavorglobal_foundherskeepers-networkoftrust-femalefounders-activity-7519140172626853889-e32x' },
+        { img: null, href: 'https://www.instagram.com/p/Dez6I1knGFs/' },
+      ] },
     { title: 'Founder Storytelling and Copywriting',
       text: 'Social copy for all platforms, and short summaries for the Elsewhere WhatsApp channel.',
       shape: 'tall', columns: 4,
-      items: [null, null, null, null] },
+      items: [
+        { img: null, href: 'https://whatsapp.com/channel/0029Vb7FARMHLHQgYvOXme32' },
+        { img: null, href: 'https://www.linkedin.com/posts/endeavorglobal_linda-rottenberg-on-changing-the-map-of-innovation-activity-7526285136032845824-VYjF' },
+      ] },
     { title: 'Community and Milestones', handleUrl: 'https://www.instagram.com/endeavor_global/',
       text: 'Content for @endeavor_global, from founder gatherings to Cashea ringing the bell at Nasdaq.',
       shape: 'portrait', columns: 4,
-      items: [null, null, null, null] },
+      items: [
+        { img: null, href: 'https://www.instagram.com/p/Det4_EtnHco/' },
+        { img: null, href: 'https://www.instagram.com/reel/DbD9dP9hiR2/' },
+        { img: null, href: 'https://www.instagram.com/reel/DZ-oRcSBunm/' },
+        { img: null, href: 'https://www.instagram.com/reel/Df2oKcDBW0P/' },
+      ] },
   ],
 };
 
