@@ -12,7 +12,8 @@ export const site = {
   phone: '+1 (617) 955-1761',
   instagram: 'https://www.instagram.com/isateubal/',
   linkedin: 'https://www.linkedin.com/in/isabella-teubal-3121a6222/',
-  cv: '/isabella-teubal-cv.pdf',
+  cv: '/cv',
+  cvPdf: '/isabella-teubal-cv.pdf',
 };
 
 // `crop` reproduces how each photo is framed in the Figma design:
@@ -27,7 +28,7 @@ export const homeFeatures = [
     ratio: '1293 / 769', crop: { w: 113.64, h: 107.41, l: -7.16, t: -6.37 } },
   { img: 'la-vie-est-un-film.jpg', title: 'LA VIE EST UN FILM', subtitle: 'Filmmaking', href: '/la-vie-est-un-film',
     ratio: '1301 / 732' },
-  { img: 'greek-islands.jpg', title: 'GREEK ISLANDS', subtitle: 'Photography', href: null,
+  { img: 'greek-islands.jpg', title: 'GREEK ISLANDS', subtitle: 'Photography', href: '/greece',
     ratio: '1311 / 757', crop: { w: 99.95, h: 259.72, l: 0.02, t: -105.83 } },
 ];
 
@@ -38,22 +39,22 @@ export const projectSections = [
   { heading: 'Social Media Curation', tiles: [
     { label: 'DAVID ZWIRNER', date: 'Summer 2024', img: 'david-zwirner.jpg', href: '/dz',
       crop: { w: 113.34, h: 110.84, l: -7.14, t: -8.4 } },
-    { label: 'GABRIELA HEARST', date: 'March 2025', img: 'gabriela-hearst.jpg', href: null },
+    { label: 'GABRIELA HEARST', date: 'March 2025', img: 'gabriela-hearst.jpg', href: '/gh' },
     { label: 'ISLAA', date: 'April 2026', img: 'islaa.jpg', href: null },
-    { label: 'PERSONAL CURATION', img: 'personal-curation.jpg', href: null },
-    { label: 'ENDEAVOR', img: 'endeavor.jpg', href: null,
+    { label: 'PERSONAL CURATION', img: 'personal-curation.jpg', href: '/personal-curation' },
+    { label: 'ENDEAVOR', img: 'endeavor.jpg', href: '/endeavor',
       crop: { w: 143.84, h: 104.11, l: -20.18, t: -1.42 } },
     { label: 'SOLOMONOFF ARCHITECTURE STUDIO', img: 'solomonoff.jpg', href: '/sas' },
   ]},
   { heading: 'Photography', tiles: [
-    { label: 'GREEK ISLANDS', date: 'May 2025', img: 'greek-islands.jpg', href: null,
+    { label: 'GREEK ISLANDS', date: 'May 2025', img: 'greek-islands.jpg', href: '/greece',
       crop: { w: 99.95, h: 259.72, l: 0.02, t: -105.83 } },
-    { label: 'STORM KING', date: 'October 2025', img: 'storm-king.jpg', href: null,
+    { label: 'STORM KING', date: 'October 2025', img: 'storm-king.jpg', href: '/storm-king',
       crop: { w: 100.11, h: 115.33, l: -0.06, t: -7.66 } },
-    { label: 'ISTANBUL', date: 'May 2025', img: 'istanbul.jpg', href: null },
-    { label: 'PEOPLE', img: 'people.jpg', href: null,
+    { label: 'ISTANBUL', date: 'May 2025', img: 'istanbul.jpg', href: '/istanbul' },
+    { label: 'PEOPLE', img: 'people.jpg', href: '/people',
       crop: { w: 100, h: 259.09, l: 0, t: -22.73 } },
-    { label: 'FILM PHOTOGRAPHY', img: 'film-photography.jpg', href: null },
+    { label: 'FILM PHOTOGRAPHY', img: 'film-photography.jpg', href: '/film' },
   ]},
   { heading: 'Filmmaking', tiles: [
     { label: 'LA VIE EST UN FILM', date: '2021', img: 'la-vie-est-un-film.jpg', href: '/la-vie-est-un-film',
@@ -141,5 +142,74 @@ export const bio = {
       title: '‘From cinema to branding: Isabella Teubal and the new role of narrative in brands,’',
       href: 'https://www.elobservador.com/argentina/tendencias/del-cine-al-branding-isabella-teubal-y-el-nuevo-rol-la-narrativa-las-marcas-n6056705',
       date: 'September 2026.' },
+  ],
+};
+
+// ── Text pages ────────────────────────────────────────────────
+// Simple HTML: <h2> for bold headings, <p> for paragraphs, <a href> for links.
+export const textPages = [
+  { slug: 'endeavor', title: 'Endeavor', html: `
+<p>Marketing &amp; Communications Analyst, 2026 to present<br>Previously Digital Marketing Summer Analyst</p>
+<p>Endeavor is a global community of high-impact entrepreneurs. I work on the organization’s social presence across TikTok, Instagram, LinkedIn, and WhatsApp, covering strategy, content, and copy.</p>
+<h2>Launching <a href="https://www.tiktok.com/@elsewherebyendeavor" target="_blank" rel="noopener">@elsewherebyendeavor</a></h2>
+<p>I developed Endeavor’s TikTok strategy and launch plan from first idea to first post. The channel extends Elsewhere, Endeavor’s editorial voice on entrepreneurship outside Silicon Valley, to a new and younger audience. I presented the strategy to CEO Linda Rottenberg and the team as the channel went live, and I now manage it. This includes concepting, filming, and editing, as well as turning long-form panel footage into short clips for the platform.</p>
+<h2>Female Founders in London</h2>
+<p>For Endeavor’s London event on how female founders build businesses, I managed the distribution packages and adapted the event’s content for each <a href="https://www.linkedin.com/feed/update/urn:li:activity:7519140172626853889" target="_blank" rel="noopener">channel</a>, panelist, and relevant attendees. That meant photo-led storytelling on Instagram and a data-driven post on LinkedIn about women’s representation in venture capital, so one event reached each audience in a format that suited it.</p>
+<h2>Founder Storytelling and Copywriting</h2>
+<p>I write social copy that turns entrepreneurs’ journeys into short, readable stories for all social media platforms. For the Elsewhere WhatsApp channel, I condense long-form articles into short, conversational summaries that drive readers back to the full piece.</p>
+<h2>Community and Milestones</h2>
+<p>For <a href="https://www.instagram.com/endeavor_global/" target="_blank" rel="noopener">@endeavor_global</a>, I curate and create content that celebrates the network’s moments, from founder gatherings to companies like Cashea ringing the bell at Nasdaq.</p>` },
+];
+
+export const personalCuration = {
+  slug: 'personal-curation', title: 'Personal Curation',
+  images: ['personal-curation-1.jpg', 'personal-curation-2.jpg'],
+  html: `<p>Content curation of personal Instagram account.<br><a href="https://www.instagram.com/isateubal/" target="_blank" rel="noopener">@isateubal</a></p>`,
+};
+
+// ── CV page (from the latest CV PDF) ──────────────────────────
+export const cv = {
+  summary: 'Marketing, content, and communications professional working at the intersection of the art world, luxury, and film. Background in brand partnerships, social strategy, and film production across New York, Paris, Buenos Aires, and Montevideo. Trilingual in English, Spanish, and French.',
+  experience: [
+    { role: 'Marketing & Communications Analyst', org: 'Endeavor', place: 'New York, NY', dates: 'Jun 2026 – Present', points: [
+      'Built Endeavor’s TikTok strategy and launch plan (@elsewherebyendeavor) and presented it to CEO Linda Rottenberg and leadership, leading to an ongoing role running the channel.',
+      'Produce social distribution packages for flagship events, including Founder London, and maintain the content calendar across Endeavor’s global network.'] },
+    { role: 'Creative Associate & Digital Strategist', org: 'Solomonoff Architecture Studio', place: 'New York, NY', dates: 'Sep 2026 – Present', points: [
+      'Concept and write social content for the studio’s exhibition design of the Telenovela show at Americas Society, ensuring accurate credits for curatorial and institutional partners.',
+      'Work directly with the founder on creative and digital strategy, including the Buenos Aires Biennial.'] },
+    { role: 'Brand Partnerships Analyst (2026) and Intern (2025)', org: 'Leitzes & Co', place: 'New York, NY', dates: 'Jun 2025 – May 2026', points: [
+      'Created pitch decks and researched talent and influencers, contributing to partnerships with Spotify, Tinder, and the Whitney.',
+      'Tracked press coverage and campaign performance and prepared post-campaign reports that informed client strategy.',
+      'Coordinated events, scheduling, and client communications across concurrent accounts.'] },
+    { role: 'Creative Direction', org: 'HAULANI', place: 'Argentina', dates: 'Project Based, 2023 – 2026', points: [
+      'Contributed to the creative direction of the brand’s frozen bar launch campaign.'] },
+    { role: 'Creative Director & Stylist', org: 'Pola Atelier', place: 'Buenos Aires, Argentina', dates: 'Project Based, 2022 – 2026', points: [
+      'Directed and styled social campaigns that helped secure projects with Teatro Colón, Casa Lucía, and bridal clients.'] },
+    { role: 'Client Development Intern', org: 'David Zwirner', place: 'New York, NY', dates: 'Sep – Dec 2025', points: [
+      'Restructured 2,000+ CRM records and tracked press coverage, handling confidential client information with discretion.'] },
+    { role: 'Fashion Content Creator', org: 'Bureau Future (Clara Cullen)', place: 'Paris, France', dates: 'Mar 2025', points: [
+      'Coordinated on-site logistics and produced behind-the-scenes content for the Gabriela Hearst Fall 2025 Ready-to-Wear show.'] },
+    { role: 'Social Media & Content Intern', org: 'David Zwirner', place: 'New York, NY', dates: 'Jun – Aug 2024', points: [
+      'Wrote copy and planned content around artist programming and exhibitions for the gallery’s digital platforms.',
+      'Created the highest performing post of the summer, with engagement 28% above average.'] },
+    { role: 'Creative Director & Donor Outreach Co-Lead', org: 'Fundación Pérez Scremini', place: 'Montevideo, Uruguay', dates: '2023 – 2024', points: [
+      'Built relationships with donors and artists for the Foundation’s annual Gala, its most successful on record, raising USD 175,800.'] },
+    { role: 'Data Analyst', org: 'Eyecue Insights', place: 'Montevideo, Uruguay', dates: 'Dec 2023 – Jan 2024', points: [
+      'Analyzed consumer behavior in luxury beauty for clients including Guerlain, turning social metrics into brand insights.'] },
+    { role: 'Assistant to Second Assistant Director', org: 'Pampa Films / Disney+', place: 'Buenos Aires, Argentina', dates: 'Apr – Jun 2022', points: [
+      'Supported the directing department on set for Season 2 of Entrelazados, an Argentine TV series for Disney+.'] },
+    { role: 'Post Production / Assistant Director', org: 'Rebolucion', place: 'Buenos Aires, Argentina', dates: 'Feb – Mar 2022', points: [
+      'Worked as on-set AD for a WhatsApp International commercial and cataloged project assets in post production.'] },
+  ],
+  education: [
+    { school: 'BA, Cinema Studies, NYU Tisch School of the Arts', dates: 'Class of 2026',
+      note: 'GPA 3.9 · Honors Scholar · Minors: Business of Entertainment, Media & Technology; French · Writer, NYU Luxury & Retail Association' },
+    { school: 'Film & Media Studies and Economics, Tufts University', dates: '2022 – 2024', note: 'Staff Writer, The Tufts Daily' },
+  ],
+  skills: [
+    ['Marketing & Content', 'social strategy · community management · content calendars · short-form video · copywriting · pitch decks · press and campaign tracking'],
+    ['Tools', 'Microsoft Office · Google Workspace · Notion · Sprout Social · CRM · Adobe Creative Cloud · Figma · Canva · Final Cut Pro · Python'],
+    ['AI Tools', 'Claude · ChatGPT · Gemini'],
+    ['Languages', 'Fluent English & Spanish · Advanced French'],
   ],
 };

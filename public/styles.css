@@ -149,3 +149,64 @@ a.tile:hover .photo img { opacity: 0.85; }
   .site-footer { padding: 32px var(--pad); min-height: 117px; align-items: flex-start; }
   .site-footer nav { font-size: 12px; }
 }
+
+/* ── Photo essays (Istanbul, Greece, People, Storm King, Film, Gabriela Hearst) ── */
+.essay h1 { font-size: 20px; padding: 36px 104px 14px; max-width: 1280px; margin: 0 auto; }
+.essay-intro { font-size: 20px; max-width: 1280px; margin: 0 auto; padding: 0 64px 70px; }
+.essay:has(.essay-intro) h1 { display: none; }
+.essay:has(.essay-intro) .essay-intro { padding-top: 56px; }
+.canvas { position: relative; width: 100%; max-width: 1280px; margin: 0 auto; overflow: hidden; }
+.canvas .photo { background: none; }
+.essay .pill-row { margin: 80px 0 40px; }
+
+/* ── Text page (Endeavor) ── */
+.prose { max-width: 1280px; margin: 0 auto; padding: 36px var(--pad) 80px; font-size: 20px; }
+.prose h1 { font-size: 20px; margin-bottom: 52px; }
+.prose h2 { font-size: 20px; font-weight: 700; margin: 34px 0 16px; }
+.prose p + p { margin-top: 29px; }
+.prose a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ── Personal Curation ── */
+.stack { max-width: 1280px; margin: 0 auto; padding: 36px 92px 80px 92px; font-size: 20px; }
+.stack h1 { font-size: 20px; margin: 0 0 14px 12px; }
+.stack-text { margin-top: 32px; }
+.stack-text a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ── CV ── */
+.cv-body {
+  background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('/images/la-hero.jpg') 63.9% -100px / 547% auto no-repeat #fff;
+}
+.cv-body .site-footer { border-color: rgba(0,0,0,0.15); margin-top: 0; }
+.cv { max-width: 1280px; margin: 0 auto; padding: 36px 106px 80px; font-size: 17px; }
+.cv h1 { font-size: 20px; margin-bottom: 30px; }
+.cv h2 { font-size: 17px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; margin: 34px 0 14px; }
+.cv strong { font-weight: 700; }
+.cv-name { font-size: 19px; margin-bottom: 26px; }
+.cv a { text-decoration: underline; text-underline-offset: 2px; }
+.cv-item + .cv-item { margin-top: 18px; }
+.cv-line { display: flex; justify-content: space-between; gap: 24px; }
+.cv-dates { white-space: nowrap; }
+.cv ul { margin: 2px 0 0; padding-left: 27px; }
+.cv .pill-row { margin-top: 70px; }
+.cv .pill { background: rgba(255,255,255,0.45); }
+
+@media (max-width: 900px) {
+  .essay h1 { padding-left: var(--pad); padding-right: var(--pad); }
+  .essay-intro { padding-left: var(--pad); padding-right: var(--pad); }
+  .stack { padding-left: var(--pad); padding-right: var(--pad); }
+  .stack h1 { margin-left: 0; }
+  .cv { padding-left: var(--pad); padding-right: var(--pad); }
+}
+@media (max-width: 600px) {
+  .essay h1 { padding-top: 16px; font-size: 18px; }
+  .essay-intro { font-size: 16px; padding: 16px var(--pad) 32px; }
+  .essay .pill-row { margin: 40px 0 24px; }
+  .prose, .stack { font-size: 16px; padding-top: 16px; }
+  .prose h1, .prose h2 { font-size: 17px; }
+  .prose h1 { margin-bottom: 28px; }
+  .cv { font-size: 15px; padding-top: 16px; }
+  .cv-line { flex-direction: column; gap: 0; }
+  .cv-dates { font-style: italic; }
+}
+.logo img { mix-blend-mode: multiply; }
+.cv a.pill, .text-page a.pill, .prose a.pill { text-decoration: none; }
