@@ -245,7 +245,7 @@ export const personalCuration = {
   images: [
     ...Array.from({ length: 35 }, (_, i) => `pc-hq-${String(i + 1).padStart(2, '0')}.jpg`),
     'personal-curation-36.jpg',   // older cut-out, no sharper version yet
-    'pc-hq-36.jpg', 'pc-hq-37.jpg', 'pc-hq-38.jpg',
+    ...Array.from({ length: 11 }, (_, i) => `pc-hq-${i + 36}.jpg`),
   ],
   link: 'https://www.instagram.com/isateubal/',   // every photo opens this in a new tab
   html: `<p>Content curation of personal Instagram account.</p>`,
