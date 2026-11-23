@@ -339,7 +339,7 @@ function cvPage() {
   return layout({ title: 'CV', current: 'cv', bodyClass: 'cv-body', body: `
 <article class="cv">
 <h1>My CV</h1>
-<p class="cv-name"><strong>${esc(site.name)}</strong><br>New York, NY  ·  <a href="mailto:${site.email}">${site.email}</a>  ·  <a href="${site.linkedin}" target="_blank" rel="noopener">LinkedIn</a></p>
+<p class="cv-name"><strong>${esc(site.name)}</strong><br><span class="cv-contact">New York, NY  ·  <a href="mailto:${site.email}">${site.email}</a>  ·  <a href="${site.linkedin}" target="_blank" rel="noopener">LinkedIn</a></span></p>
 <p>${esc(cv.summary)}</p>
 <h2>EXPERIENCE</h2>
 ${exp}
