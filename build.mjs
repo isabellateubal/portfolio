@@ -86,7 +86,7 @@ function projectsPage() {
     const tiles = s.tiles.map((t) => {
       const external = t.href && isExternal(t.href);
       const inner = `${photo(t.img, { crop: t.crop, ratio: '380 / 220', alt: t.label })}
-      <p class="tile-label${external ? ' underlined' : ''}"><span>${esc(t.label)}</span></p>`;
+      <p class="tile-label"><span>${esc(t.label)}</span></p>`;
       return t.href ? `<a class="tile" ${linkAttrs(t.href)}>${inner}</a>` : `<div class="tile">${inner}</div>`;
     }).join('\n');
     return `<section class="tile-section" id="${slug(s.heading)}"><h2>${esc(s.heading)}</h2><div class="tiles">${tiles}</div></section>`;
