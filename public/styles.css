@@ -422,3 +422,10 @@ body > main { flex: 1 0 auto; }
 .marquees .marquee .slide { width: clamp(200px, 18vw, 250px); }
 .marquee.reverse .marquee-track { animation-direction: reverse; }
 @media (max-width: 600px) { .marquees .marquee .slide { width: 48vw; } }
+
+/* Personal Curation: still, edge-to-edge grid with no gaps */
+.curation-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; width: 100%; }
+.curation-grid .photo { background: #f0f0f0; }
+.curation-grid a.tile:hover img { opacity: 0.85; }
+@media (max-width: 900px) { .curation-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 600px) { .curation-grid { grid-template-columns: repeat(2, 1fr); } }
