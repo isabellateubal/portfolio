@@ -212,7 +212,7 @@ ${pill(p.button)}
   } else if (p.type === 'gallery') {
     body = `<article class="gallery" style="--cols:${p.columns}">
 <h1 class="visually-hidden">${esc(p.title)}</h1>
-${p.groups.map((g) => `<section><h2>${esc(g.heading)}</h2><div class="grid">${g.images.map((img, i) => { const ph = photo(img, { ratio: p.ratio, alt: '' }); const href = g.links && g.links[i]; if (p.zoom) return `<button class="zoom" type="button" data-full="/images/${img}" aria-label="View full size">${ph}</button>`; return href ? `<a class="tile" ${linkAttrs(href)}>${ph}</a>` : ph; }).join('')}</div></section>`).join('\n')}
+${p.groups.map((g, gi) => `<section><h2>${esc(g.heading)}</h2>${gi === 0 && p.subtitle ? `<p class="gallery-sub">${esc(p.subtitle)}</p>` : ''}<div class="grid">${g.images.map((img, i) => { const ph = photo(img, { ratio: p.ratio, alt: '' }); const href = g.links && g.links[i]; if (p.zoom) return `<button class="zoom" type="button" data-full="/images/${img}" aria-label="View full size">${ph}</button>`; return href ? `<a class="tile" ${linkAttrs(href)}>${ph}</a>` : ph; }).join('')}</div></section>`).join('\n')}
 </article>${p.zoom ? `
 <div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
   <button class="lb-close" type="button" aria-label="Close">×</button>

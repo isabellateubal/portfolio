@@ -168,6 +168,7 @@ export const projectPages = [
     ] },
   // zoom: true → click a photo to see it full size
   { slug: 'islaa', type: 'gallery', title: 'ISLAA', columns: 4, ratio: '4 / 5', zoom: true,
+    subtitle: 'Spring Week at The Institute for Studies on Latin American Art',
     groups: [ { heading: 'ISLAA', images: Array.from({ length: 16 }, (_, i) => `islaa-${String(i + 1).padStart(2, '0')}.jpg`) } ] },
   { slug: 'sas', type: 'gallery', title: 'Solomonoff Architecture Studio', columns: 4, ratio: '310 / 413',
     groups: [ { heading: 'Curation', images: ['sas-1.jpg', 'sas-2.jpg', 'sas-3.jpg', 'sas-4.jpg'],
