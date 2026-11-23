@@ -140,6 +140,33 @@ function projectPage(p) {
 ${media}
 ${pill(p.button)}
 </article>`;
+  } else if (p.type === 'shorts') {
+    // even grid of same-size tiles (videos are trimmed to fit, like the Projects page)
+    const items = p.videos.map(([file, w, h]) => {
+      const poster = file.replace(/\.mp4$/, '.jpg');
+      return `<div class="short"><video data-src="/videos/${file}" poster="/images/${poster}" muted loop playsinline preload="none"></video></div>`;
+    }).join('\n');
+    body = `<article class="shorts">
+<h1>${esc(p.title)}</h1>
+<div class="shorts-grid">
+${items}
+</div>
+</article>
+<script>
+(function () {
+  // load and play each video only while it is on screen
+  var vids = document.querySelectorAll('.shorts video');
+  if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.src = v.dataset.src; v.play(); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; var p = v.play(); if (p) p.catch(function () {}); }
+      else v.pause();
+    });
+  }, { rootMargin: '200px' });
+  vids.forEach(function (v) { io.observe(v); });
+})();
+</script>`;
   } else if (p.type === 'zine') {
     body = `<article class="zine">
 <h1 class="visually-hidden">${esc(p.title)}</h1>

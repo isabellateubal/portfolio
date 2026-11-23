@@ -58,7 +58,7 @@ export const projectSections = [
   { heading: 'Filmmaking', tiles: [
     { label: 'LA VIE EST UN FILM', date: '2021', img: 'la-vie-est-un-film.jpg', href: '/la-vie-est-un-film',
       crop: { w: 103.44, h: 100.02, l: 0, t: -0.01 } },
-    { label: 'LA', date: '2026', img: 'la.jpg', href: '/la',
+    { label: 'SHORTS', img: 'la.jpg', href: '/shorts',
       crop: { w: 104.53, h: 100, l: -3.59, t: 0 } },
     { label: 'WHATSAPP COMMERCIAL', date: '2022', img: 'whatsapp.jpg', href: '/whatsapp' },
     { label: 'INTERTWINED DISNEY+', date: '2022', img: 'intertwined.jpg', href: '/enla',
@@ -104,9 +104,15 @@ export const projectPages = [
   { slug: 'jane', type: 'film', title: 'Jane?', role: 'Writer, Cinematographer, Editor',
     img: 'jane.jpg',
     button: { text: 'Watch', href: 'https://www.youtube.com/watch?v=Gvf6BEwaax0' } },
-  { slug: 'la', type: 'film', title: 'LA', role: 'Travel Diaries',
-    img: 'la.jpg',
-    button: { text: 'Watch', href: 'https://www.tiktok.com/@isabellateu/video/7626889982577364242' } },
+  // type 'shorts' → looping silent videos in an even grid. Each: [file in public/videos, width, height]
+  { slug: 'shorts', type: 'shorts', title: 'Shorts',
+    videos: [
+      ['short-01.mp4', 576, 1024],
+      ['short-02.mp4', 1024, 576],
+      ['short-03.mp4', 1024, 576],
+      ['short-04.mp4', 1024, 576],
+      ['short-05.mp4', 1280, 720],
+    ] },
   { slug: 'whatsapp', type: 'film', title: 'Introducing WhatsApp Communities',
     role: 'Assistant Director (2nd AD), Rebolucion (Award-winning film and advertising production company)',
     img: 'whatsapp.jpg',

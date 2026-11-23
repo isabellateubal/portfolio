@@ -360,3 +360,16 @@ a.canvas-link:hover img { opacity: 0.85; }
 @media (max-width: 900px) {
   .cv-body { background-size: cover; background-position: 62% center; background-attachment: scroll; }
 }
+
+/* ── Shorts: looping videos in an even grid ── */
+.shorts { max-width: 1280px; margin: 0 auto; padding: 56px var(--pad) 40px; }
+.shorts h1 { font-size: 20px; margin-bottom: 24px; }
+.shorts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.short { position: relative; overflow: hidden; background: #f0f0f0; aspect-ratio: 16 / 9; }
+.short video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 900px) { .shorts-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .shorts { padding-top: 24px; }
+  .shorts h1 { font-size: 18px; }
+  .shorts-grid { grid-template-columns: 1fr; }
+}
