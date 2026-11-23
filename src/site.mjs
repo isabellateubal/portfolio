@@ -56,14 +56,14 @@ export const projectSections = [
     { label: 'FILM PHOTOGRAPHY', img: 'film-photography.jpg', href: '/film' },
   ]},
   { heading: 'Filmmaking', tiles: [
-    { label: 'LA VIE EST UN FILM', date: '2021', img: 'la-vie-est-un-film.jpg', href: '/la-vie-est-un-film',
-      crop: { w: 103.44, h: 100.02, l: 0, t: -0.01 } },
     { label: 'SHORTS', img: 'la.jpg', href: '/shorts',
       crop: { w: 104.53, h: 100, l: -3.59, t: 0 } },
+    { label: 'LA VIE EST UN FILM', date: '2021', img: 'la-vie-est-un-film.jpg', href: '/la-vie-est-un-film',
+      crop: { w: 103.44, h: 100.02, l: 0, t: -0.01 } },
+    { label: 'JANE', date: '2019', img: 'jane.jpg', href: '/jane' },
     { label: 'WHATSAPP COMMERCIAL', date: '2022', img: 'whatsapp.jpg', href: '/whatsapp' },
     { label: 'INTERTWINED DISNEY+', date: '2022', img: 'intertwined.jpg', href: '/enla',
       crop: { w: 109.9, h: 100, l: -7.6, t: 0 } },
-    { label: 'JANE', date: '2019', img: 'jane.jpg', href: '/jane' },
   ]},
   { heading: 'Writing', tiles: [
     { label: 'Before the Feed: The Return of Carolyn Bessette-Kennedy', date: '2026',
