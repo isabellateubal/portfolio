@@ -409,9 +409,9 @@ body > main { flex: 1 0 auto; }
 .marquee { overflow: hidden; width: 100%; }
 .marquee-track { display: flex; gap: 6px; width: max-content; animation: marquee calc(var(--count) * 6s) linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
-.marquee .slide { flex: 0 0 auto; width: clamp(200px, 19vw, 260px); }
+.marquee .slide { flex: 0 0 auto; width: clamp(240px, 23vw, 320px); }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 3px)); } }
-@media (max-width: 600px) { .marquee .slide { width: 56vw; } }
+@media (max-width: 600px) { .marquee .slide { width: 66vw; } }
 @media (prefers-reduced-motion: reduce) {
   .marquee { overflow-x: auto; }
   .marquee-track { animation: none; }
