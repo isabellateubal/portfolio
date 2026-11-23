@@ -404,3 +404,15 @@ a.tile:hover .short video, a.tile:hover .short img { opacity: 0.85; }
 body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
 body > main { flex: 1 0 auto; }
 .site-footer { flex-shrink: 0; }
+
+/* Personal Curation: continuous scroll */
+.marquee { overflow: hidden; width: 100%; }
+.marquee-track { display: flex; gap: 6px; width: max-content; animation: marquee calc(var(--count) * 6s) linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee .slide { flex: 0 0 auto; width: clamp(200px, 19vw, 260px); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 3px)); } }
+@media (max-width: 600px) { .marquee .slide { width: 56vw; } }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { overflow-x: auto; }
+  .marquee-track { animation: none; }
+}

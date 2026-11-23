@@ -289,56 +289,16 @@ ${p.html}
 }
 
 function personalCurationPage(p) {
-  const slides = p.images.map((img, i) =>
-    `<a class="slide tile" ${linkAttrs(p.link)} aria-label="Open Instagram"><div class="photo" style="aspect-ratio:4 / 5"><img src="/images/${img}" alt="" loading="${i < 5 ? 'eager' : 'lazy'}" decoding="async" draggable="false"></div></a>`).join('');
+  // continuous scroll: the row is shown twice and slides left forever (pauses on hover)
+  const slide = (img, i) =>
+    `<a class="slide tile" ${linkAttrs(p.link)} aria-label="Open Instagram"${i >= p.images.length ? ' aria-hidden="true" tabindex="-1"' : ''}><div class="photo" style="aspect-ratio:4 / 5"><img src="/images/${img}" alt="" loading="${i < 6 ? 'eager' : 'lazy'}" decoding="async" draggable="false"></div></a>`;
+  const slides = [...p.images, ...p.images].map(slide).join('');
   return layout({ title: p.title, body: `
 <article class="curation">
 <h1>${esc(p.title)}</h1>
-<div class="carousel">
-  <div class="track" tabindex="0" aria-label="Photos, scroll sideways">${slides}</div>
-  <div class="carousel-nav">
-    <button class="arrow" data-dir="-1" aria-label="Previous">←</button>
-    <button class="arrow" data-dir="1" aria-label="Next">→</button>
-  </div>
-</div>
+<div class="marquee"><div class="marquee-track" style="--count:${p.images.length}">${slides}</div></div>
 <div class="curation-text">${p.html}</div>
-</article>
-<script>
-(function () {
-  // Infinite loop: the row is repeated three times and we quietly jump back
-  // to the middle copy whenever the visitor scrolls near either end.
-  var track = document.querySelector('.carousel .track');
-  var originals = Array.prototype.slice.call(track.children);
-  originals.forEach(function (el) { track.appendChild(el.cloneNode(true)); });
-  originals.slice().reverse().forEach(function (el) { track.insertBefore(el.cloneNode(true), track.firstChild); });
-  track.querySelectorAll('img').forEach(function (img) { img.loading = 'eager'; });
-  var count = originals.length;
-  function step() { return track.children[0].getBoundingClientRect().width + 6; }
-  function setWidth() { return count * step(); }
-  function jump(x) {
-    track.style.scrollBehavior = 'auto'; track.style.scrollSnapType = 'none';
-    track.scrollLeft = x;
-    requestAnimationFrame(function () { track.style.scrollBehavior = ''; track.style.scrollSnapType = ''; });
-  }
-  jump(setWidth());
-  var t;
-  track.addEventListener('scroll', function () {
-    clearTimeout(t);
-    t = setTimeout(function () {
-      var w = setWidth();
-      if (track.scrollLeft < w * 0.5) jump(track.scrollLeft + w);
-      else if (track.scrollLeft > w * 1.5) jump(track.scrollLeft - w);
-    }, 120);
-  });
-  document.querySelectorAll('.carousel .arrow').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var n = Math.max(1, Math.floor(track.clientWidth / step()) - 1);
-      track.scrollBy({ left: +b.dataset.dir * n * step(), behavior: 'smooth' });
-    });
-  });
-  window.addEventListener('resize', function () { jump(setWidth()); });
-})();
-</script>` });
+</article>` });
 }
 
 function cvPage() {
