@@ -117,6 +117,8 @@ export const projectPages = [
       ['short-08.mp4', 768, 576],
       ['short-09.mp4', 1024, 576],
       ['short-10.mp4', 1280, 720],
+      ['short-11.mp4', 576, 1024],
+      ['short-12.mp4', 1024, 576],
     ] },
   { slug: 'whatsapp', type: 'film', title: 'Introducing WhatsApp Communities',
     role: 'Assistant Director (2nd AD), Rebolucion (Award-winning film and advertising production company)',
