@@ -70,7 +70,7 @@ em { font-style: italic; }
 .pill-small { font-size: 13px; padding: 10px 20px; gap: 10px; }
 
 /* ── Home ────────────────────────────────────────────────── */
-.intro { text-align: center; padding: 21px var(--pad) 22px; }
+.intro { text-align: center; padding: 21px var(--pad) 22px; font-size: 18px; }
 .features { display: flex; flex-direction: column; }
 .feature { position: relative; display: block; }
 .feature-caption {
