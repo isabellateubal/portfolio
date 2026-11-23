@@ -144,7 +144,7 @@ ${pill(p.button)}
     // even grid of same-size tiles (videos are trimmed to fit, like the Projects page)
     const items = p.videos.map(([file, w, h]) => {
       const poster = file.replace(/\.mp4$/, '.jpg');
-      return `<div class="short"><video data-src="/videos/${file}" poster="/images/${poster}" muted loop playsinline preload="none"></video></div>`;
+      return `<button class="short" type="button" aria-label="Play video"><video data-src="/videos/${file}" poster="/images/${poster}" muted loop playsinline preload="none"></video></button>`;
     }).join('\n');
     body = `<article class="shorts">
 <h1>${esc(p.title)}</h1>
@@ -152,7 +152,43 @@ ${pill(p.button)}
 ${items}
 </div>
 </article>
+<div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="lb-close" type="button" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous video">←</button>
+  <video class="lb-video" controls playsinline></video>
+  <button class="lb-nav lb-next" type="button" aria-label="Next video">→</button>
+</div>
 <script>
+(function () {
+  // click a video to watch it full screen, with sound; arrows / swipe to go through them
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.shorts .short'));
+  var lb = document.querySelector('.lightbox'), lv = lb.querySelector('.lb-video'), cur = 0;
+  function open(i) {
+    cur = (i + tiles.length) % tiles.length;
+    lv.src = tiles[cur].querySelector('video').dataset.src;
+    lv.muted = false;
+    lb.hidden = false; document.body.style.overflow = 'hidden';
+    var p = lv.play(); if (p) p.catch(function () {});
+  }
+  function close() { lv.pause(); lv.removeAttribute('src'); lv.load(); lb.hidden = true; document.body.style.overflow = ''; tiles[cur].focus(); }
+  tiles.forEach(function (t, i) { t.addEventListener('click', function () { open(i); }); });
+  lb.querySelector('.lb-close').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', function () { open(cur - 1); });
+  lb.querySelector('.lb-next').addEventListener('click', function () { open(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') open(cur + 1);
+    else if (e.key === 'ArrowLeft') open(cur - 1);
+  });
+  var x0 = null;
+  lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) open(cur + (dx < 0 ? 1 : -1));
+  });
+})();
 (function () {
   // load and play each video only while it is on screen
   var vids = document.querySelectorAll('.shorts video');
