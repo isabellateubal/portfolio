@@ -295,8 +295,8 @@ function personalCurationPage(p) {
   return layout({ title: p.title, body: `
 <article class="curation">
 <h1>${esc(p.title)}</h1>
+<div class="curation-text curation-sub">${p.html}</div>
 <div class="curation-grid">${cells}</div>
-<div class="curation-text">${p.html}</div>
 </article>` });
 }
 

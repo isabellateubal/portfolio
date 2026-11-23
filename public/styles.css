@@ -429,3 +429,6 @@ body > main { flex: 1 0 auto; }
 .curation-grid a.tile:hover img { opacity: 0.85; }
 @media (max-width: 900px) { .curation-grid { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 600px) { .curation-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.curation h1 { margin-bottom: 4px; }
+.curation-sub { margin: 0 auto 24px; color: var(--muted); }
