@@ -133,7 +133,7 @@ function projectPage(p) {
   let body;
   if (p.type === 'film') {
     const media = p.youtube
-      ? `<div class="photo video" style="aspect-ratio:1149 / 669"><iframe src="https://www.youtube-nocookie.com/embed/${p.youtube}" title="${esc(p.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+      ? `<div class="photo video" style="aspect-ratio:16 / 9"><iframe src="https://www.youtube-nocookie.com/embed/${p.youtube}" title="${esc(p.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
       : photo(p.img, { crop: p.crop, ratio: '1149 / 669', alt: p.title, eager: true });
     body = `<article class="film">
 <h1>${esc(p.title)}<em>${esc(p.role)}</em></h1>
