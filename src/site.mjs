@@ -203,7 +203,8 @@ export const textPages = [];
 // Images go in public/images, videos (mp4) in public/videos.
 export const endeavor = {
   slug: 'endeavor', title: 'Endeavor',
-  heading: 'TikTok Lead, Social Media Content Creation & Curation, Copywriting',   // shown at the top of the page
+  heading: 'Endeavor is the leading network of entrepreneurs scaling exceptional businesses around the world.',   // shown at the top of the page
+  subheading: 'TikTok Lead, Social Media Content Creation & Curation, Copywriting',
   role: 'Social strategy, content, and copy across TikTok, Instagram, LinkedIn, and WhatsApp',
   // half: true → two neighbouring sections share one row
   sections: [

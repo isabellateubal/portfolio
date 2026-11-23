@@ -285,7 +285,7 @@ function endeavorPage(e) {
   };
   return layout({ title: e.title, body: `
 <article class="shorts endv-flat">
-<h1>${esc(e.heading || e.title)}</h1>
+<h1>${esc(e.heading || e.title)}</h1>${e.subheading ? `<p class="gallery-sub endv-sub">${esc(e.subheading)}</p>` : ''}
 <div class="shorts-grid">
 ${items.map(cell).join('\n')}
 </div>
