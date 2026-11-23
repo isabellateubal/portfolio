@@ -166,8 +166,9 @@ export const projectPages = [
         'https://www.instagram.com/p/C9NaWuhiZOx/',
         'https://www.instagram.com/p/C_TOe2Fo52L/'] },
     ] },
-  { slug: 'islaa', type: 'gallery', title: 'ISLAA', columns: 4, ratio: '4 / 5',
-    groups: [ { heading: 'ISLAA', images: Array.from({ length: 24 }, (_, i) => `islaa-${String(i + 1).padStart(2, '0')}.jpg`) } ] },
+  // zoom: true → click a photo to see it full size
+  { slug: 'islaa', type: 'gallery', title: 'ISLAA', columns: 4, ratio: '4 / 5', zoom: true,
+    groups: [ { heading: 'ISLAA', images: Array.from({ length: 16 }, (_, i) => `islaa-${String(i + 1).padStart(2, '0')}.jpg`) } ] },
   { slug: 'sas', type: 'gallery', title: 'Solomonoff Architecture Studio', columns: 4, ratio: '310 / 413',
     groups: [ { heading: 'Curation', images: ['sas-1.jpg', 'sas-2.jpg', 'sas-3.jpg', 'sas-4.jpg'],
         links: [

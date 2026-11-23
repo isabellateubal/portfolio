@@ -212,8 +212,34 @@ ${pill(p.button)}
   } else if (p.type === 'gallery') {
     body = `<article class="gallery" style="--cols:${p.columns}">
 <h1 class="visually-hidden">${esc(p.title)}</h1>
-${p.groups.map((g) => `<section><h2>${esc(g.heading)}</h2><div class="grid">${g.images.map((img, i) => { const ph = photo(img, { ratio: p.ratio, alt: '' }); const href = g.links && g.links[i]; return href ? `<a class="tile" ${linkAttrs(href)}>${ph}</a>` : ph; }).join('')}</div></section>`).join('\n')}
-</article>`;
+${p.groups.map((g) => `<section><h2>${esc(g.heading)}</h2><div class="grid">${g.images.map((img, i) => { const ph = photo(img, { ratio: p.ratio, alt: '' }); const href = g.links && g.links[i]; if (p.zoom) return `<button class="zoom" type="button" data-full="/images/${img}" aria-label="View full size">${ph}</button>`; return href ? `<a class="tile" ${linkAttrs(href)}>${ph}</a>` : ph; }).join('')}</div></section>`).join('\n')}
+</article>${p.zoom ? `
+<div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" type="button" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous photo">←</button>
+  <img class="lb-img" alt="">
+  <button class="lb-nav lb-next" type="button" aria-label="Next photo">→</button>
+</div>
+<script>
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('.gallery .zoom'));
+  var lb = document.querySelector('.lightbox'), im = lb.querySelector('.lb-img'), cur = 0;
+  function open(i) { cur = (i + items.length) % items.length; im.src = items[cur].dataset.full; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function close() { lb.hidden = true; im.removeAttribute('src'); document.body.style.overflow = ''; items[cur].focus(); }
+  items.forEach(function (b, i) { b.addEventListener('click', function () { open(i); }); });
+  lb.querySelector('.lb-close').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', function () { open(cur - 1); });
+  lb.querySelector('.lb-next').addEventListener('click', function () { open(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') open(cur + 1); else if (e.key === 'ArrowLeft') open(cur - 1);
+  });
+  var x0 = null;
+  lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) open(cur + (dx < 0 ? 1 : -1)); });
+})();
+</script>` : ''}`;
   }
   return layout({ title: p.title, body });
 }
