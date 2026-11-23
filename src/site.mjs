@@ -241,16 +241,15 @@ export const endeavor = {
 export const personalCuration = {
   slug: 'personal-curation', title: 'Personal Curation',
   // one photo per post, shown in a side-scrolling row
-  // photos with faces removed
+  // chosen photos, in order
   images: [
     'pc-hq-01.jpg',
     'pc-hq-02.jpg',
     'pc-hq-03.jpg',
+    'pc-hq-04.jpg',
     'pc-hq-06.jpg',
     'pc-hq-07.jpg',
     'pc-hq-08.jpg',
-    'pc-hq-09.jpg',
-    'pc-hq-11.jpg',
     'pc-hq-12.jpg',
     'pc-hq-13.jpg',
     'pc-hq-14.jpg',
@@ -269,10 +268,11 @@ export const personalCuration = {
     'pc-hq-30.jpg',
     'pc-hq-31.jpg',
     'pc-hq-33.jpg',
-    'pc-hq-35.jpg',
     'pc-hq-36.jpg',
+    'pc-hq-37.jpg',
     'pc-hq-38.jpg',
     'pc-hq-39.jpg',
+    'pc-hq-40.jpg',
     'pc-hq-41.jpg',
     'pc-hq-42.jpg',
     'pc-hq-43.jpg',

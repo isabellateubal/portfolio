@@ -431,4 +431,4 @@ body > main { flex: 1 0 auto; }
 @media (max-width: 600px) { .curation-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .curation h1 { margin-bottom: 4px; }
-.curation-sub { margin: 0 auto 24px; color: var(--muted); }
+.curation-sub { margin: 0 auto 24px; color: var(--ink); }
