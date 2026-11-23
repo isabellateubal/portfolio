@@ -245,44 +245,39 @@ ${p.button ? pill(p.button) : ''}
 </article>` });
 }
 
-// ── Endeavor: image-led sections ──────────────────────────────
+// ── Endeavor: one even grid of 16:9 tiles (title only) ─────────
+// Items come from all sections in src/site.mjs, in order. Videos loop silently.
 function endeavorPage(e) {
-  const ratios = { tall: '9 / 16', portrait: '4 / 5', wide: '16 / 9' };
+  const items = e.sections.flatMap((sec) => sec.items).filter(Boolean);
   const cell = (item) => {
-    if (!item || !(item.img || item.video)) {
-      const box = `<div class="photo ph-box" style="aspect-ratio:${ratio}"></div>`;
-      return item && item.href ? `<a class="tile" ${linkAttrs(item.href)}>${box}</a>` : box;
-    }
+    const pos = item.pos ? ` style="object-position:${item.pos}"` : '';
     const inner = item.video
-      ? `<video src="/videos/${item.video}" autoplay muted loop playsinline preload="metadata"></video>`
-      : `<img src="/images/${item.img}" alt="" loading="lazy" decoding="async"${item.pos ? ` style="object-position:${item.pos}"` : ''}>`;
-    const box = `<div class="photo" style="aspect-ratio:${ratio}">${inner}</div>`;
+      ? `<video data-src="/videos/${item.video}"${item.img ? ` poster="/images/${item.img}"` : ''} muted loop playsinline preload="none"></video>`
+      : item.img ? `<img src="/images/${item.img}" alt="" loading="lazy" decoding="async"${pos}>` : '';
+    const box = `<div class="short">${inner}</div>`;
     return item.href ? `<a class="tile" ${linkAttrs(item.href)}>${box}</a>` : box;
   };
-  let ratio;
-  const rendered = e.sections.map((sec) => {
-    ratio = ratios[sec.shape] || ratios.portrait;
-    const title = sec.handleUrl
-      ? esc(sec.title).replace(/(@\S+)/, `<a ${linkAttrs(sec.handleUrl)}>$1</a>`) : esc(sec.title);
-    const link = sec.link ? ` <a class="inline-link" ${linkAttrs(sec.link.href)}>${esc(sec.link.text)}</a>` : '';
-    return `<section class="endv-sec">
-<h2>${title}</h2>
-<p class="endv-text">${esc(sec.text)}${link}</p>
-<div class="endv-grid endv-${sec.shape}" style="--cols:${sec.columns}">${sec.items.map(cell).join('')}</div>
-</section>`;
-  });
-  // put neighbouring half-width sections side by side
-  let sections = '';
-  for (let i = 0; i < rendered.length; i++) {
-    if (e.sections[i].half && e.sections[i + 1] && e.sections[i + 1].half) {
-      sections += `<div class="endv-pair">${rendered[i]}${rendered[i + 1]}</div>\n`; i++;
-    } else sections += rendered[i] + '\n';
-  }
   return layout({ title: e.title, body: `
-<article class="endv">
-<h1>${esc(e.title)}<em>${esc(e.role)}</em></h1>
-${sections}
-</article>` });
+<article class="shorts endv-flat">
+<h1>${esc(e.title)}</h1>
+<div class="shorts-grid">
+${items.map(cell).join('\n')}
+</div>
+</article>
+<script>
+(function () {
+  var vids = document.querySelectorAll('.endv-flat video');
+  if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.src = v.dataset.src; v.play(); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; var p = v.play(); if (p) p.catch(function () {}); }
+      else v.pause();
+    });
+  }, { rootMargin: '200px' });
+  vids.forEach(function (v) { io.observe(v); });
+})();
+</script>` });
 }
 
 function textPage(p) {

@@ -393,3 +393,5 @@ button.short:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
   .lb-next { right: calc(50% - 52px); }
   .lb-close { top: 12px; right: 12px; }
 }
+.short img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+a.tile:hover .short video, a.tile:hover .short img { opacity: 0.85; }

@@ -207,10 +207,10 @@ export const endeavor = {
       shape: 'portrait', columns: 4,
       // { video: 'file.mp4' or img: 'file.jpg', href: 'https://www.tiktok.com/...' }
       items: [
-        { img: 'endeavor-tiktok-1.jpg', href: 'https://vm.tiktok.com/ZN8mVcxEb/' },
-        { img: 'endeavor-tiktok-2.jpg', href: 'https://vm.tiktok.com/ZN8mqdurV/' },
-        { img: 'endeavor-tiktok-3.jpg', href: 'https://vm.tiktok.com/ZN8mqd6ou/' },
-        { img: 'endeavor-tiktok-4.jpg', href: 'https://vm.tiktok.com/ZN8mqeLv2/' },
+        { video: 'endeavor-tiktok-1.mp4', img: 'endeavor-tiktok-1.jpg', href: 'https://vm.tiktok.com/ZN8mVcxEb/' },
+        { video: 'endeavor-tiktok-2.mp4', img: 'endeavor-tiktok-2.jpg', href: 'https://vm.tiktok.com/ZN8mqdurV/' },
+        { video: 'endeavor-tiktok-3.mp4', img: 'endeavor-tiktok-3.jpg', href: 'https://vm.tiktok.com/ZN8mqd6ou/' },
+        { video: 'endeavor-tiktok-4.mp4', img: 'endeavor-tiktok-4.jpg', href: 'https://vm.tiktok.com/ZN8mqeLv2/' },
       ] },
     { title: 'Community and Milestones', handleUrl: 'https://www.instagram.com/endeavor_global/',
       text: 'Content for @endeavor_global, from founder gatherings to Cashea ringing the bell at Nasdaq.',
