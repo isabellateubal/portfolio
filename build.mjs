@@ -290,13 +290,15 @@ ${p.html}
 
 function personalCurationPage(p) {
   // continuous scroll: the row is shown twice and slides left forever (pauses on hover)
-  const slide = (img, i) =>
-    `<a class="slide tile" ${linkAttrs(p.link)} aria-label="Open Instagram"${i >= p.images.length ? ' aria-hidden="true" tabindex="-1"' : ''}><div class="photo" style="aspect-ratio:4 / 5"><img src="/images/${img}" alt="" loading="${i < 6 ? 'eager' : 'lazy'}" decoding="async" draggable="false"></div></a>`;
-  const slides = [...p.images, ...p.images].map(slide).join('');
+  const slide = (img, i, n) =>
+    `<a class="slide tile" ${linkAttrs(p.link)} aria-label="Open Instagram"${i >= n ? ' aria-hidden="true" tabindex="-1"' : ''}><div class="photo" style="aspect-ratio:4 / 5"><img src="/images/${img}" alt="" loading="${i < 6 ? 'eager' : 'lazy'}" decoding="async" draggable="false"></div></a>`;
+  // two rows: alternate photos between them so neighbours differ; bottom row moves the other way
+  const rows = [p.images.filter((_, i) => i % 2 === 0), p.images.filter((_, i) => i % 2 === 1)];
+  const track = (imgs, k) => `<div class="marquee${k ? ' reverse' : ''}"><div class="marquee-track" style="--count:${imgs.length}">${[...imgs, ...imgs].map((img, i) => slide(img, i, imgs.length)).join('')}</div></div>`;
   return layout({ title: p.title, body: `
 <article class="curation">
 <h1>${esc(p.title)}</h1>
-<div class="marquee"><div class="marquee-track" style="--count:${p.images.length}">${slides}</div></div>
+<div class="marquees">${rows.map(track).join('')}</div>
 <div class="curation-text">${p.html}</div>
 </article>` });
 }
