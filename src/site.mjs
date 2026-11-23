@@ -39,7 +39,7 @@ export const projectSections = [
     { label: 'DAVID ZWIRNER', date: 'Summer 2024', img: 'david-zwirner.jpg', href: '/dz',
       crop: { w: 113.34, h: 110.84, l: -7.14, t: -8.4 } },
     { label: 'GABRIELA HEARST', date: 'March 2025', img: 'gabriela-hearst.jpg', href: '/gh' },
-    { label: 'ISLAA', date: 'April 2026', img: 'islaa.jpg', href: null },
+    { label: 'ISLAA', date: 'April 2026', img: 'islaa.jpg', href: '/islaa' },
     { label: 'PERSONAL CURATION', img: 'personal-curation.jpg', href: '/personal-curation' },
     { label: 'ENDEAVOR', img: 'endeavor.jpg', href: '/endeavor',
       crop: { w: 143.84, h: 104.11, l: -20.18, t: -1.42 } },
@@ -166,6 +166,8 @@ export const projectPages = [
         'https://www.instagram.com/p/C9NaWuhiZOx/',
         'https://www.instagram.com/p/C_TOe2Fo52L/'] },
     ] },
+  { slug: 'islaa', type: 'gallery', title: 'ISLAA', columns: 4, ratio: '4 / 5',
+    groups: [ { heading: 'ISLAA', images: Array.from({ length: 24 }, (_, i) => `islaa-${String(i + 1).padStart(2, '0')}.jpg`) } ] },
   { slug: 'sas', type: 'gallery', title: 'Solomonoff Architecture Studio', columns: 4, ratio: '310 / 413',
     groups: [ { heading: 'Curation', images: ['sas-1.jpg', 'sas-2.jpg', 'sas-3.jpg', 'sas-4.jpg'],
         links: [
