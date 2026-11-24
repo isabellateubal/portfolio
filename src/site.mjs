@@ -7,6 +7,7 @@
 
 export const site = {
   name: 'Isabella Teubal',
+  url: 'https://isabellateubal.netlify.app',   // change if you get your own domain
   intro: 'Hi, I’m Isabella Teubal. Creative Director based in New York.',
   email: 'isateubal@gmail.com',
   instagram: 'https://www.instagram.com/isateubal/',

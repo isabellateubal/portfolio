@@ -38,6 +38,15 @@ function layout({ title, body, current, bodyClass = '' }) {
 <title>${esc(title ? `${title} — ${site.name}` : site.name)}</title>
 <meta name="description" content="${esc(site.intro)}">
 <link rel="icon" href="/images/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="${esc(site.name)}">
+<meta property="og:title" content="${esc(title ? `${title} — ${site.name}` : site.name)}">
+<meta property="og:description" content="${esc(site.intro)}">
+<meta property="og:image" content="${site.url}/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${site.url}/og-image.jpg">
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
@@ -135,7 +144,6 @@ function projectPage(p) {
     body = `<article class="film">
 <h1>${esc(p.title)}<em>${esc(p.role)}</em></h1>
 ${media}
-${pill(p.button)}
 </article>`;
   } else if (p.type === 'shorts') {
     // even grid of same-size tiles (videos are trimmed to fit, like the Projects page)
