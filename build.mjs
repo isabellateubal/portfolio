@@ -327,32 +327,23 @@ function personalCurationPage(p) {
 }
 
 function cvPage() {
-  // editorial two-column layout: dates + company on the left, role + details on the right
+  // minimal two-column CV: section label on the left, plain lines on the right
   const org = (e) => e.href ? `<a href="${e.href}">${esc(e.org)}</a>` : esc(e.org);
-  const exp = cv.experience.map((e) => `<section class="cv-row">
-<div class="cv-meta"><span class="cv-dates">${esc(e.dates)}</span><span class="cv-org">${org(e)}</span><span class="cv-place">${esc(e.place)}</span></div>
-<div class="cv-body-col"><p class="cv-role">${esc(e.role)}</p><ul>${e.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
-</section>`).join('\n');
-  const edu = cv.education.map((e) => `<section class="cv-row">
-<div class="cv-meta"><span class="cv-dates">${esc(e.dates)}</span></div>
-<div class="cv-body-col"><p class="cv-role">${esc(e.school)}</p><p class="cv-note">${esc(e.note)}</p></div>
-</section>`).join('\n');
-  const skills = cv.skills.map(([k, v]) => `<section class="cv-row">
-<div class="cv-meta"><span class="cv-org">${esc(k)}</span></div>
-<div class="cv-body-col"><p>${esc(v)}</p></div>
-</section>`).join('\n');
+  const row = (label, html) => `<div class="cv3-row"><div class="cv3-label">${label}</div><div class="cv3-text">${html}</div></div>`;
+  const block = (lines) => `<p>${lines.filter(Boolean).join('<br>')}</p>`;
+  const education = cv.educationLines.map((lines) => block(lines.map(esc))).join('');
+  const employment = cv.experience.map((e) => block([org(e), esc(e.role), esc(e.dates)])).join('');
+  const skills = cv.skills.filter(([k]) => k !== 'Languages').map(([k, v]) => block([esc(k), esc(v.replace(/ · /g, ', '))])).join('');
+  const langs = (cv.skills.find(([k]) => k === 'Languages') || [, ''])[1].replace(/ · /g, ', ');
   return layout({ title: 'CV', current: 'cv', body: `
-<article class="cv cv2">
-<h1>My CV</h1>
-<p class="cv-name"><strong>${esc(site.name)}</strong><br><span class="cv-contact">New York, NY  ·  <a href="mailto:${site.email}">${site.email}</a>  ·  <a href="${site.linkedin}" target="_blank" rel="noopener">LinkedIn</a></span></p>
-<p class="cv-summary">${esc(cv.summary)}</p>
-<h2>Experience</h2>
-${exp}
-<h2>Education</h2>
-${edu}
-<h2>Skills</h2>
-${skills}
-${pill({ text: 'Download PDF', href: site.cvPdf, down: true })}
+<article class="cv3">
+${row(`${esc(site.name)}<br>New York, NY`, '<h1>CV</h1>')}
+${row('Education', education)}
+${row('Employment', employment)}
+${row('Skills', skills)}
+${row('Languages', `<p>${esc(langs)}</p>`)}
+${row(`<a href="${site.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`, `<p><a href="mailto:${site.email}">${site.email}</a></p>`)}
+${row(`<a href="${site.cvPdf}" download>Download PDF</a>`, '')}
 </article>` });
 }
 
