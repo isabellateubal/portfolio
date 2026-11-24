@@ -440,16 +440,16 @@ button.zoom:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
 
 /* CV: minimal two-column layout */
 .cv3 { max-width: 1280px; margin: 0 auto; padding: 36px var(--pad) 80px; font-size: 17px; line-height: 1.45; }
-.cv3-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; }
-.cv3-row + .cv3-row { margin-top: 1.45em; }
+.cv3-row { display: grid; grid-template-columns: 260px 1fr; column-gap: 40px; }
+.cv3-row + .cv3-row { margin-top: 1.1em; }
 .cv3 h1 { font-size: inherit; font-weight: 500; margin: 0; }
 .cv3-text p { margin: 0; }
-.cv3-text p + p { margin-top: 1.45em; }
+.cv3-text p + p { margin-top: 0.8em; }
 .cv3 a { text-decoration: underline; text-underline-offset: 2px; }
 .cv3 a:hover { opacity: 0.55; }
 @media (max-width: 700px) {
   .cv3 { font-size: 15px; }
   .cv3-row { grid-template-columns: 1fr; }
   .cv3-label { color: var(--muted); margin-bottom: 4px; }
-  .cv3-row + .cv3-row { margin-top: 2em; }
+  .cv3-row + .cv3-row { margin-top: 1.4em; }
 }
