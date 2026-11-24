@@ -311,7 +311,7 @@ export const cv = {
       'Directed and styled social campaigns that helped secure projects with Teatro Colón, Casa Lucía, and bridal clients.'] },
     { role: 'Client Development Intern', org: 'David Zwirner', href: '/dz', place: 'New York, NY', dates: 'Sep – Dec 2025', points: [
       'Restructured 2,000+ CRM records and tracked press coverage, handling confidential client information with discretion.'] },
-    { role: 'Fashion Content Creator', org: 'Bureau Future (Clara Cullen)', href: '/gh', place: 'Paris, France', dates: 'Mar 2025', points: [
+    { role: 'Fashion Content Creator', org: 'Film Director Clara Cullen (Bureau Future)', href: '/gh', place: 'Paris, France', dates: 'Mar 2025', points: [
       'Coordinated on-site logistics and produced behind-the-scenes content for the Gabriela Hearst Fall 2025 Ready-to-Wear show.'] },
     { role: 'Social Media & Content Intern', org: 'David Zwirner', href: '/dz', place: 'New York, NY', dates: 'Jun – Aug 2024', points: [
       'Wrote copy and planned content around artist programming and exhibitions for the gallery’s digital platforms.',
