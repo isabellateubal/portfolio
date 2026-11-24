@@ -52,7 +52,6 @@ ${body}
   <nav>
     <a href="mailto:${site.email}">Email</a>
     <a href="${site.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="${site.instagram}" target="_blank" rel="noopener">Instagram</a>
   </nav>
 </footer>
 </body>
