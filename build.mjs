@@ -356,10 +356,7 @@ function aboutPage() {
 <article class="text-page bio">
 <h1>Bio/Contact</h1>
 ${bio.paragraphs.map((t) => `<p>${esc(t)}</p>`).join('\n')}
-<p><strong>Press:</strong><br>
-${bio.press.map((x) => `${esc(x.outlet)}, <a ${linkAttrs(x.href)}><em>${esc(x.title)}</em></a> ${esc(x.date)}`).join('<br>')}</p>
-<p><strong>Contact:</strong><br>
-Email: <a href="mailto:${site.email}">${site.email}</a></p>
+<p><a href="mailto:${site.email}">${site.email}</a></p>
 </article>` });
 }
 
