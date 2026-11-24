@@ -46,6 +46,14 @@ export const photoPages = [
     ['91982', 0, 187, 640, 959],
   ]},
   { slug: 'gh', title: 'Gabriela Hearst',
+    // rows: shown instead of the free layout below; each row = photo ids side by side (1 = full width)
+    rows: [
+      ['72a4b', '492bc'],   // yellow dress · fur coats
+      ['f28db-tight', 'd948e'],   // place card · seating
+      ['45720', '49bcc'],   // makeup, orange dress · cream knit
+      ['d4a5f', '03a26'],   // lace dress · phone filming the screen
+      ['b9fad'],            // finale in front of the screens
+    ],
     intro: ['Gabriela Hearst Fall 2025 Ready-to-Wear, Paris.',
       'Direction of Clara Cullen as part of Bureau Future’s Paris production.',
       'Backstage Content Creator.'],

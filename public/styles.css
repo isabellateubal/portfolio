@@ -481,3 +481,8 @@ button.zoom:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
 .film .photo.video, .film > .photo { max-width: 760px; }
 .shorts h1 + .shorts-sub { margin: -20px 0 24px; }
 @media (max-width: 600px) { .film h1 em { font-size: 14px; } }
+
+/* Editorial rows (Gabriela Hearst) */
+.ed-rows { max-width: 1280px; margin: 0 auto; padding: 0 var(--pad); display: flex; flex-direction: column; gap: 6px; }
+.ed-row { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 6px; }
+@media (max-width: 600px) { .ed-rows { padding: 0; } }

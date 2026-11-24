@@ -252,6 +252,20 @@ ${p.groups.map((g, gi) => `<section><h2>${esc(g.heading)}</h2>${gi === 0 && p.su
 
 // Photo essays: photos placed exactly as in Figma, scaled to the screen width
 function photoPage(p) {
+  if (p.rows) {
+    const rows = p.rows.map((ids) => `<div class="ed-row" style="--n:${ids.length}">${ids.map((id, i) =>
+      `<div class="photo" style="aspect-ratio:${ids.length === 1 ? '3 / 2' : '4 / 5'}"><img src="/images/${p.slug}-${id}.jpg" alt="" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async"></div>`).join('')}</div>`).join('\n');
+    const intro = p.intro ? `<p class="essay-intro">${p.intro.map(esc).join('<br>')}</p>` : '';
+    return layout({ title: p.title, body: `
+<article class="essay ed">
+<h1>${esc(p.title)}</h1>
+${intro}
+<div class="ed-rows">
+${rows}
+</div>
+${p.button ? pill(p.button) : ''}
+</article>` });
+  }
   const W = 1280;
   const top = Math.min(...p.photos.map((x) => x[2]));
   const bottom = Math.max(...p.photos.map((x) => x[2] + x[4]));
