@@ -462,3 +462,5 @@ button.zoom:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
 }
 .pill::after { content: none; }
 .pill:hover, .pill:focus-visible { opacity: 0.55; }
+.decks a { text-decoration: underline; text-underline-offset: 2px; }
+.decks a:hover { opacity: 0.55; }

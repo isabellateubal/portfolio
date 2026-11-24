@@ -101,8 +101,7 @@ ${cats.map((c) => `<a href="#${slug(c)}" data-filter="${slug(c)}">${esc(c)}</a>`
 ${index}
 <div class="proj-list">
 ${sections}
-<section class="tile-section decks" id="decks"><h2>Decks</h2><p>${esc(decks.text)}</p>
-<a class="pill pill-small" ${linkAttrs(decks.href)}>${esc(decks.button)}</a></section>
+<section class="tile-section decks" id="decks"><h2>Decks</h2><p>${esc(decks.text).replace('access', `<a class="inline-link" ${linkAttrs(decks.href)}>access</a>`)}</p></section>
 </div>
 </div>
 <script>
