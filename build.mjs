@@ -346,7 +346,6 @@ ${row('Education', education)}
 ${row('Employment', employment)}
 ${row('Skills', skills)}
 ${row('Languages', `<p>${esc(langs)}</p>`)}
-${row(`<a href="${site.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`, `<p><a href="mailto:${site.email}">${site.email}</a></p>`)}
 ${row(`<a href="${site.cvPdf}" download>Download PDF</a>`, '')}
 </article>` });
 }
