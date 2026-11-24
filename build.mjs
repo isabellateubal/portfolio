@@ -36,7 +36,9 @@ function layout({ title, body, current, bodyClass = '' }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title ? `${title} — ${site.name}` : site.name)}</title>
 <meta name="description" content="${esc(site.intro)}">
-<link rel="icon" href="/images/logo.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(site.name)}">
 <meta property="og:title" content="${esc(title ? `${title} — ${site.name}` : site.name)}">
