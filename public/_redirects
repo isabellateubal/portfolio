@@ -1,3 +1,5 @@
+# send the old Netlify address to the real domain
+https://isabellateubal.netlify.app/*  https://isabellateubal.com/:splat  301!
 /la  /shorts  301
 /la/  /shorts  301
 /contact  /about  301
