@@ -107,7 +107,7 @@ export const projectPages = [
     youtube: 'Gvf6BEwaax0',
     button: { text: 'Watch', href: 'https://www.youtube.com/watch?v=Gvf6BEwaax0' } },
   // type 'shorts' → looping silent videos in an even grid. Each: [file in public/videos, width, height]
-  { slug: 'shorts', type: 'shorts', title: 'Shorts',
+  { slug: 'shorts', type: 'shorts', title: 'Shorts', subtitle: 'Personal projects',
     videos: [
       ['short-10.mp4', 1280, 720],
       ['short-11.mp4', 576, 1024],

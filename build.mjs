@@ -153,7 +153,7 @@ ${media}
       return `<button class="short" type="button" aria-label="Play video"><video data-src="/videos/${file}" poster="/images/${poster}" muted loop playsinline preload="none"></video></button>`;
     }).join('\n');
     body = `<article class="shorts">
-<h1>${esc(p.title)}</h1>
+<h1>${esc(p.title)}</h1>${p.subtitle ? `<p class="gallery-sub shorts-sub">${esc(p.subtitle)}</p>` : ''}
 <div class="shorts-grid">
 ${items}
 </div>
