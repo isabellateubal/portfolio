@@ -453,3 +453,12 @@ button.zoom:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
   .cv3-label { color: var(--muted); margin-bottom: 4px; }
   .cv3-row + .cv3-row { margin-top: 1.4em; }
 }
+
+/* Buttons shown as plain underlined text links */
+.pill, .pill-small, .pill-grey {
+  display: inline; padding: 0; border: 0; border-radius: 0; background: none !important; color: var(--ink) !important;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  font-size: inherit; text-decoration: underline !important; text-underline-offset: 3px; text-decoration-thickness: 1px;
+}
+.pill::after { content: none; }
+.pill:hover, .pill:focus-visible { opacity: 0.55; }
