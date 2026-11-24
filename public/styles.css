@@ -464,3 +464,9 @@ button.zoom:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
 .pill:hover, .pill:focus-visible { opacity: 0.55; }
 .decks a { text-decoration: underline; text-underline-offset: 2px; }
 .decks a:hover { opacity: 0.55; }
+
+/* Footer: no logo, small black links on the right */
+.site-footer { justify-content: flex-end; }
+.site-footer nav { color: var(--ink); font-size: 14px; }
+.site-footer nav a:hover { color: var(--ink); opacity: 0.55; }
+@media (max-width: 600px) { .site-footer { align-items: center; } .site-footer nav { font-size: 12px; } }

@@ -49,7 +49,6 @@ function layout({ title, body, current, bodyClass = '' }) {
 ${body}
 </main>
 <footer class="site-footer">
-  <a class="logo" href="/">${logo}</a>
   <nav>
     <a href="mailto:${site.email}">Email</a>
     <a href="${site.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
