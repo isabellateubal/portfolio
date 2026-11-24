@@ -41,7 +41,7 @@ function layout({ title, body, current, bodyClass = '' }) {
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(site.name)}">
 <meta property="og:title" content="${esc(title ? `${title} — ${site.name}` : site.name)}">
-<meta property="og:description" content="${esc(site.intro)}">
+<meta property="og:description" content="${esc(site.previewText)}">
 <meta property="og:image" content="${site.url}/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
