@@ -25,8 +25,7 @@ function layout({ title, body, current, bodyClass = '' }) {
   const nav = [
     ['Projects', '/projects', 'projects'],
     ['CV', site.cv, 'cv'],
-    ['Bio', '/about', 'about'],
-    ['Contact', '/contact', 'contact'],
+    ['Bio/Contact', '/about', 'about'],
   ].map(([label, href, key]) =>
     `<a href="${href}"${key === current ? ' aria-current="page"' : ''}>${label}</a>`
   ).join('');
@@ -353,23 +352,17 @@ ${row(`<a href="${site.cvPdf}" download>Download PDF</a>`, '')}
 }
 
 function aboutPage() {
-  return layout({ title: 'Bio', current: 'about', body: `
+  return layout({ title: 'Bio/Contact', current: 'about', body: `
 <article class="text-page bio">
-<h1>Bio</h1>
+<h1>Bio/Contact</h1>
 ${bio.paragraphs.map((t) => `<p>${esc(t)}</p>`).join('\n')}
-${photo(bio.img, { ratio: '659 / 879', alt: 'Isabella Teubal' })}
 <p><strong>Press:</strong><br>
 ${bio.press.map((x) => `${esc(x.outlet)}, <a ${linkAttrs(x.href)}><em>${esc(x.title)}</em></a> ${esc(x.date)}`).join('<br>')}</p>
-</article>` });
-}
-
-function contactPage() {
-  return layout({ title: 'Contact', current: 'contact', body: `
-<article class="text-page contact">
-<p><strong>Feel free to reach out via:</strong><br>
+<p><strong>Contact:</strong><br>
 Email: <a href="mailto:${site.email}">${site.email}</a></p>
 </article>` });
 }
+
 
 function notFoundPage() {
   return layout({ title: 'Page not found', body: `
@@ -387,7 +380,6 @@ const write = (path, html) => {
 write('', homePage());
 write('projects', projectsPage());
 write('about', aboutPage());
-write('contact', contactPage());
 for (const p of projectPages) write(p.slug, projectPage(p));
 for (const p of photoPages) write(p.slug, photoPage(p));
 for (const p of textPages) write(p.slug, textPage(p));
