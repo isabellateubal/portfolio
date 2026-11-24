@@ -327,25 +327,30 @@ function personalCurationPage(p) {
 }
 
 function cvPage() {
-  const exp = cv.experience.map((e) => `<section class="cv-item">
-<p class="cv-line"><span><strong>${esc(e.role)}</strong> | <em>${esc(e.org)},</em> ${esc(e.place)}</span><span class="cv-dates">${esc(e.dates)}</span></p>
-<ul>${e.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+  // editorial two-column layout: dates + company on the left, role + details on the right
+  const org = (e) => e.href ? `<a href="${e.href}">${esc(e.org)}</a>` : esc(e.org);
+  const exp = cv.experience.map((e) => `<section class="cv-row">
+<div class="cv-meta"><span class="cv-dates">${esc(e.dates)}</span><span class="cv-org">${org(e)}</span><span class="cv-place">${esc(e.place)}</span></div>
+<div class="cv-body-col"><p class="cv-role">${esc(e.role)}</p><ul>${e.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
 </section>`).join('\n');
-  const edu = cv.education.map((e) => `<section class="cv-item">
-<p class="cv-line"><strong>${esc(e.school)}</strong><span class="cv-dates">${esc(e.dates)}</span></p>
-<p><em>${esc(e.note)}</em></p>
+  const edu = cv.education.map((e) => `<section class="cv-row">
+<div class="cv-meta"><span class="cv-dates">${esc(e.dates)}</span></div>
+<div class="cv-body-col"><p class="cv-role">${esc(e.school)}</p><p class="cv-note">${esc(e.note)}</p></div>
 </section>`).join('\n');
-  const skills = cv.skills.map(([k, v]) => `<p><strong>${esc(k)}:</strong> ${esc(v)}</p>`).join('\n');
-  return layout({ title: 'CV', current: 'cv', bodyClass: 'cv-body', body: `
-<article class="cv">
+  const skills = cv.skills.map(([k, v]) => `<section class="cv-row">
+<div class="cv-meta"><span class="cv-org">${esc(k)}</span></div>
+<div class="cv-body-col"><p>${esc(v)}</p></div>
+</section>`).join('\n');
+  return layout({ title: 'CV', current: 'cv', body: `
+<article class="cv cv2">
 <h1>My CV</h1>
 <p class="cv-name"><strong>${esc(site.name)}</strong><br><span class="cv-contact">New York, NY  ·  <a href="mailto:${site.email}">${site.email}</a>  ·  <a href="${site.linkedin}" target="_blank" rel="noopener">LinkedIn</a></span></p>
-<p>${esc(cv.summary)}</p>
-<h2>EXPERIENCE</h2>
+<p class="cv-summary">${esc(cv.summary)}</p>
+<h2>Experience</h2>
 ${exp}
-<h2>EDUCATION</h2>
+<h2>Education</h2>
 ${edu}
-<h2>SKILLS</h2>
+<h2>Skills</h2>
 ${skills}
 ${pill({ text: 'Download PDF', href: site.cvPdf, down: true })}
 </article>` });

@@ -291,13 +291,14 @@ export const personalCuration = {
 };
 
 // ── CV page (from the latest CV PDF) ──────────────────────────
+// href on an experience entry links the company name to its project page
 export const cv = {
   summary: 'Marketing, content, and communications professional working at the intersection of the art world, luxury, and film. Background in brand partnerships, social strategy, and film production across New York, Paris, Buenos Aires, and Montevideo. Trilingual in English, Spanish, and French.',
   experience: [
-    { role: 'Marketing & Communications Analyst', org: 'Endeavor', place: 'New York, NY', dates: 'Jun 2026 – Present', points: [
+    { role: 'Marketing & Communications Analyst', org: 'Endeavor', href: '/endeavor', place: 'New York, NY', dates: 'Jun 2026 – Present', points: [
       'Built Endeavor’s TikTok strategy and launch plan (@elsewherebyendeavor) and presented it to CEO Linda Rottenberg and leadership, leading to an ongoing role running the channel.',
       'Produce social distribution packages for flagship events, including Founder London, and maintain the content calendar across Endeavor’s global network.'] },
-    { role: 'Creative Associate & Digital Strategist', org: 'Solomonoff Architecture Studio', place: 'New York, NY', dates: 'Sep 2026 – Present', points: [
+    { role: 'Creative Associate & Digital Strategist', org: 'Solomonoff Architecture Studio', href: '/sas', place: 'New York, NY', dates: 'Sep 2026 – Present', points: [
       'Concept and write social content for the studio’s exhibition design of the Telenovela show at Americas Society, ensuring accurate credits for curatorial and institutional partners.',
       'Work directly with the founder on creative and digital strategy, including the Buenos Aires Biennial.'] },
     { role: 'Brand Partnerships Analyst (2026) and Intern (2025)', org: 'Leitzes & Co', place: 'New York, NY', dates: 'Jun 2025 – May 2026', points: [
@@ -308,20 +309,20 @@ export const cv = {
       'Contributed to the creative direction of the brand’s frozen bar launch campaign.'] },
     { role: 'Creative Director & Stylist', org: 'Pola Atelier', place: 'Buenos Aires, Argentina', dates: 'Project Based, 2022 – 2026', points: [
       'Directed and styled social campaigns that helped secure projects with Teatro Colón, Casa Lucía, and bridal clients.'] },
-    { role: 'Client Development Intern', org: 'David Zwirner', place: 'New York, NY', dates: 'Sep – Dec 2025', points: [
+    { role: 'Client Development Intern', org: 'David Zwirner', href: '/dz', place: 'New York, NY', dates: 'Sep – Dec 2025', points: [
       'Restructured 2,000+ CRM records and tracked press coverage, handling confidential client information with discretion.'] },
-    { role: 'Fashion Content Creator', org: 'Bureau Future (Clara Cullen)', place: 'Paris, France', dates: 'Mar 2025', points: [
+    { role: 'Fashion Content Creator', org: 'Bureau Future (Clara Cullen)', href: '/gh', place: 'Paris, France', dates: 'Mar 2025', points: [
       'Coordinated on-site logistics and produced behind-the-scenes content for the Gabriela Hearst Fall 2025 Ready-to-Wear show.'] },
-    { role: 'Social Media & Content Intern', org: 'David Zwirner', place: 'New York, NY', dates: 'Jun – Aug 2024', points: [
+    { role: 'Social Media & Content Intern', org: 'David Zwirner', href: '/dz', place: 'New York, NY', dates: 'Jun – Aug 2024', points: [
       'Wrote copy and planned content around artist programming and exhibitions for the gallery’s digital platforms.',
       'Created the highest performing post of the summer, with engagement 28% above average.'] },
     { role: 'Creative Director & Donor Outreach Co-Lead', org: 'Fundación Pérez Scremini', place: 'Montevideo, Uruguay', dates: '2023 – 2024', points: [
       'Built relationships with donors and artists for the Foundation’s annual Gala, its most successful on record, raising USD 175,800.'] },
     { role: 'Data Analyst', org: 'Eyecue Insights', place: 'Montevideo, Uruguay', dates: 'Dec 2023 – Jan 2024', points: [
       'Analyzed consumer behavior in luxury beauty for clients including Guerlain, turning social metrics into brand insights.'] },
-    { role: 'Assistant to Second Assistant Director', org: 'Pampa Films / Disney+', place: 'Buenos Aires, Argentina', dates: 'Apr – Jun 2022', points: [
+    { role: 'Assistant to Second Assistant Director', org: 'Pampa Films / Disney+', href: '/enla', place: 'Buenos Aires, Argentina', dates: 'Apr – Jun 2022', points: [
       'Supported the directing department on set for Season 2 of Entrelazados, an Argentine TV series for Disney+.'] },
-    { role: 'Post Production / Assistant Director', org: 'Rebolucion', place: 'Buenos Aires, Argentina', dates: 'Feb – Mar 2022', points: [
+    { role: 'Post Production / Assistant Director', org: 'Rebolucion', href: '/whatsapp', place: 'Buenos Aires, Argentina', dates: 'Feb – Mar 2022', points: [
       'Worked as on-set AD for a WhatsApp International commercial and cataloged project assets in post production.'] },
   ],
   education: [
