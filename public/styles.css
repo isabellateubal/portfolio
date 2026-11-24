@@ -176,9 +176,6 @@ a.tile:hover .photo img { opacity: 0.85; }
 .stack-text a { text-decoration: underline; text-underline-offset: 2px; }
 
 /* ── CV ── */
-.cv-body {
-  background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('/images/la-hero.jpg') 63.9% -100px / 547% auto no-repeat #fff;
-}
 
 .cv { max-width: 1280px; margin: 0 auto; padding: 36px 106px 80px; font-size: 17px; }
 .cv h1 { font-size: 20px; margin-bottom: 30px; }
@@ -191,8 +188,6 @@ a.tile:hover .photo img { opacity: 0.85; }
 .cv-dates { white-space: nowrap; }
 .cv ul { margin: 2px 0 0; padding-left: 27px; }
 .cv .pill-row { margin-top: 70px; }
-.cv .pill { background: rgba(255,255,255,0.35); }
-.cv .pill:hover { background: #000; }
 
 @media (max-width: 900px) {
   .essay h1 { padding-left: var(--pad); padding-right: var(--pad); }
@@ -357,10 +352,6 @@ a.canvas-link:hover img { opacity: 0.85; }
 .bio p + p { margin-top: 22px; }
 @media (max-width: 600px) { .bio { font-size: 15px; } }
 @media (max-width: 600px) { .endv h1 em { font-size: 15px; } }
-/* CV background: on phones, stretch the photo over the whole page height */
-@media (max-width: 900px) {
-  .cv-body { background-size: cover; background-position: 62% center; background-attachment: scroll; }
-}
 
 /* ── Shorts: looping videos in an even grid ── */
 .shorts { max-width: 1280px; margin: 0 auto; padding: 56px var(--pad) 40px; }
