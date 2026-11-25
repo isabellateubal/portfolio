@@ -184,7 +184,7 @@ export const projectPages = [
 export const bio = {
   paragraphs: [
     'Isabella Teubal is a visual storyteller and content creator working at the intersection of culture, media, and brand strategy. Through her experience at David Zwirner, Endeavor, and Leitzes & Co in New York, she has contributed to multi-channel marketing initiatives, developed digital content, supported high-profile brand partnerships, and strengthened audience engagement through strategic communications.',
-    'Isabella recently graduated from NYU Tisch School of the Arts as an Honors Scholar with a Bachelor’s degree in Cinema Studies and minors in Business of Entertainment, Media & Technology and French.',
+    'Isabella graduated from NYU Tisch School of the Arts as an Honors Scholar with a Bachelor’s degree in Cinema Studies and minors in Business of Entertainment, Media & Technology and French.',
     'With hands-on experience across independent and studio productions, she brings a perspective that combines creative direction, narrative development, and an understanding of how content connects with audiences. She is particularly interested in the journey of a story beyond the screen: how films are positioned, marketed, distributed, and brought to audiences across platforms and markets.',
   ],
   img: 'bio-portrait.jpg',
