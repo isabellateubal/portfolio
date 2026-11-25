@@ -329,8 +329,7 @@ export const cv = {
   ],
   // lines shown on the CV page, one per line
   educationLines: [
-    ['New York University', 'Tisch School of the Arts', 'BA Cinema Studies', 'Minors in Business of Entertainment, Media & Technology and French', 'Honors Scholar, GPA 3.9', 'Class of 2026'],
-    ['Tufts University', 'Film & Media Studies and Economics', 'Staff Writer, The Tufts Daily', '2022 – 2024'],
+    ['New York University', 'Tisch School of the Arts', 'BA Cinema Studies', 'Minors in Business of Entertainment, Media & Technology and French', 'Honors Scholar, GPA 3.9'],
   ],
   education: [
     { school: 'BA, Cinema Studies, NYU Tisch School of the Arts', dates: 'Class of 2026',
