@@ -8,8 +8,8 @@
 export const site = {
   name: 'Isabella Teubal',
   url: 'https://isabellateubal.com',
-  previewText: 'Isabella Teubal. Creative Director based in New York.',   // text shown when the link is shared   // change if you get your own domain
-  intro: 'Hi, I’m Isabella Teubal. Creative Director based in New York.',
+  previewText: 'Isabella Teubal. Marketer, Visual Storyteller and Content Creator based in New York.',   // text shown when the link is shared
+  intro: 'Hi, I’m Isabella Teubal. Marketer, Visual Storyteller and Content Creator based in New York.',
   email: 'isateubal@gmail.com',
   instagram: 'https://www.instagram.com/isateubal/',
   linkedin: 'https://www.linkedin.com/in/isabella-teubal-3121a6222/',
