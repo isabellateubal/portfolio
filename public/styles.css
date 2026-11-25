@@ -487,3 +487,4 @@ button.zoom:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
 .ed-row { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 6px; }
 @media (max-width: 600px) { .ed-rows { padding: 0; } }
 @media (max-width: 600px) { .ed .essay-intro { white-space: nowrap; font-size: min(15px, 2.7vw); letter-spacing: -0.01em; } }
+@media (max-width: 600px) { .more .pill { font-size: 14px; } }
